@@ -26,6 +26,8 @@ app.set("view engine", "handlebars");
 //******** app.use(routes); 
 require("./controllers/html-routes.js")(app);
 require("./controllers/parking_controller.js")(app);
+require("./controllers/register.js")(app);
+
 
 //syncing our sequelize models and starting our express app
 db.sequelize.sync({ force: true }).then(function() {
