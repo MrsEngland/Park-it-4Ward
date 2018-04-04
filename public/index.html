@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>Home Page</title>
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="P2css.css">
+    <link rel="stylesheet" type="text/css" href="animatedCSS.css">
+    <!-- Latest compiled and minified Bootstrap Javascript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <script type="text/javascript" src=""></script>
+</head>
+
+<body>
+
+  <div class="container" id="logo">
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div id="pic">
+          <a href="#aboutModal">
+          <img id="carPic" class="item animated zoomIn" src="logo.png" alt="car">
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+
+      <div class="row">
+        <div class="col-sm-4"></div>
+          <div id="navBtns" class="col-sm-4">
+            <a href="parking.html">
+              <img src="car.png" class="item animated bounceInLeft" id="parkBtn" alt="car">
+            </a></button>
+             <a href="#myModal">
+              <button class="btn primary item animated flipInX" type="button" id="regBtn" role="button" data-target="#myModal" aria-expanded="false">Sign Up</a>
+            </button>
+            <a href="leaving.html">
+              <img src="car.png" class="item animated bounceInRight" id="leaveBtn" alt="car">
+            </a></button>
+           </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Register with Park It 4ward</h4>
+            </div>
+            <div class="modal-body">
+                <div id="auth-container">Sign up information form will go here in this modal.
+                  <br>
+                  <form>
+                    Email address:<br>
+                    <input type="text" name="email"><br>
+                    Username:<br>
+                    <input type="text" name="Username"><br>
+                    Payment Information:<br>
+                    <input type="text" name="Payment Information">
+                    <br>
+                    <br>
+                    <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="aboutModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">About Park It 4ward</h4>
+            </div>
+            <div class="modal-body">
+                <div id="auth-container">Info telling the user about the app will go here.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<footer></footer>
+</body>
+
+<script type="text/javascript">
+  $("#parkBtn").click(function(){
+  var newURL = "parking.html";
+            window.location = newURL;
+});
+
+  $("#leaveBtn").click(function(){
+  var newURL = "leaving.html";
+            window.location = newURL;
+});
+
+  $("#regBtn").click(function(){
+        $("#myModal").modal('show');
+});
+
+  $("#carPic").click(function(){
+        $("#aboutModal").modal('show');
+});
+
+</script>
+</html>
+
+
+
