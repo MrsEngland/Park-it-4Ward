@@ -23,19 +23,10 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 /********/ var routes = require("./controllers/parking_controller.js");
 
-//******** app.use(routes); 
-require("./controllers/html-routes.js")(app);
-require("./controllers/parking_controller.js")(app);
-require("./controllers/register.js")(app);
-
-
-//syncing our sequelize models and starting our express app
-db.sequelize.sync({ force: true }).then(function() {
-
+//******** app.use(routes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
-  });
 });
