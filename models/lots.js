@@ -3,11 +3,11 @@ module.exports = function(sequelize, DataTypes) {
         
     });
 
-    ParkingLots.associate = function(models) {
-            ParkingLots.hasMany(models.Spaces, {
+    // ParkingLots.associate = function(models) {
+    //         ParkingLots.hasMany(models.Spaces, {
         
-            });
-        };
+    //         });
+    //     };
         
         return ParkingLots;
     };
