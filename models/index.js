@@ -8,9 +8,14 @@ var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 var expressValidator = require('express-validator');
+var cookieParser = require ('cookie-parser')
 
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
+
+
+// var bcrypt = require('bcrypt');
+// const saltRounds = 10;
 
 if(config.use_env_variable){
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
@@ -38,3 +43,4 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
