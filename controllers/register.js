@@ -7,7 +7,15 @@ var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 var expressValidator = require('express-validator');
+var session = require ('express-session')
+var passport = require ('passport')
+var LocalStrategy = require('passport-local').Strategy;
+var cookieParser = require ('cookie-parser')
+var express = require ('express')
+var MySQLStore = require('express-mysql-session')(session); 
+var db = require("../models");
 
+module.exports = function(app) {
 app.get('/register', function(req, res, next){ 
     res.render('register', {title: 'Registration'})
   
@@ -25,33 +33,56 @@ app.get('/register', function(req, res, next){
     req.checkBody('passwordMatch', 'Passwords do not match, please try again.').equals(req.body.password);
     req.checkBody('username', 'Username can only contain letters, numbers, or underscores.').matches(/^[A-Za-z0-9_-]+$/, 'i');
   
-        const errors = req.valdiationErrors();
+    const errors = req.valdiationErrors();
   
-          if (errors) {
-            console.log('errors: ${JSON.stringify(error)}')
+    if (errors) {
+      console.log('errors: ${JSON.stringify(error)}')
+
+      res.render('register', 
+      {title: 'Registration Error',
+      errors: errors,
   
-            res.render('register', 
-            {title: 'Registration Error',
-            errors: errors,
-        
-        });
-        } else {
-  
-        const email = req.body.email
-        const username = req.body.username
-        const password = req.body.password
-  
-       
-  
-    const db = require('./config/connection.js');
-  
-    bcrypt.hash(password, saltRounds, function(err, hash) {
-    db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function (  
-        error, results, fields) { 
-            if(error) throw error;
-            res.render('register', {title: 'Registration Complete'})
-            })
-        });
-    }
   });
-  
+  } else {
+
+  const email = req.body.email
+  const username = req.body.username
+  const password = req.body.password
+
+ 
+
+const db = require('./config/connection.js');
+
+bcrypt.hash(password, saltRounds, function(err, hash) {
+db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function (  
+  error, results, fields) { 
+      if(error) throw error;
+
+      db.query('SELECT LAST_INSERT_ID() as user_id', function (error, results, fields) { 
+          if (error) throw error;
+
+
+          const user_id = results[0];
+
+          req.login(results[0], function (err){ 
+                  res.redirect('/');
+
+          })
+      })
+
+      })
+  });
+}
+});
+}
+
+///this is all authentication packages
+passport.serializeUser(function(user_id, done) {
+done(null, user_idid);
+});
+
+passport.deserializeUser(function(user_id, done) {
+done(err, user_id);
+});
+
+
