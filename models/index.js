@@ -14,8 +14,8 @@ var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
 
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
+// var bcrypt = require('bcrypt');
+// const saltRounds = 10;
 
 if(config.use_env_variable){
   var sequelize = new Sequelize(process.env[config.use_env_variable]);

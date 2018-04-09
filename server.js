@@ -10,7 +10,8 @@ var session = require('express-session');
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var mySQLStore = require("express-mysql-session")(session);
-var bcrypt = require('bcrypt');
+var db = require("./models");
+// var bcrypt = require('bcrypt');
 
 
 var PORT = process.env.PORT || 8080;
