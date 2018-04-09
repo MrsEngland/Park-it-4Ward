@@ -9,6 +9,8 @@ CREATE TABLE parkinglots (
   lot_city VARCHAR(255) NOT NULL,
   lot_state VARCHAR(5) NOT NULL,
   lot_zip NUMERIC (10) NOT NUll,
+  lot_lat NUMERIC (10,2) NOT NULL,
+  lot_lng NUMERIC (10,2) NOT NULL,
   available_spaces NUMERIC (10) NOT NULL, 
   default_time NUMERIC (5) NOT NULL,
   spot_id Int(10) NOT NULL,
@@ -34,7 +36,7 @@ CREATE TABLE availability (
 );
 
 CREATE TABLE user (
-  userID INT (100) AUTO INCREMENT,
+  userID INT (100) AUTO_INCREMENT,
   user_name VARCHAR (50) NOT NULL, 
   user_email VARCHAR (100) NOT NULL,
   user_password VARCHAR (100) NOT NULL,
