@@ -84,6 +84,15 @@ body {
 }
 
 .modal {
-    border-radius: 30px;
+    border-radius: 50px;
     font-size: 13px;
+    text-align: center;
+}
+
+.modal-header {
+    background-color: lightgrey;
+}
+
+.modal-footer {
+    background-color: lightgrey;
 }
