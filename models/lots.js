@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var ParkingLots = sequelize.define("ParkingLots", {
+    var ParkingLots = sequelize.define("parking_lots", {
         name: { 
             type: DataTypes.STRING,
             allowNull: false,
@@ -40,16 +40,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         }
-
-    // };
-});
-
-    // ParkingLots.associate = function(models) {
-    //     ParkingLots.hasMany(models.Spaces, {
-    
-    //     });
-    // };
-
-        
+    });
     return ParkingLots;
 };

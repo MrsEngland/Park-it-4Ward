@@ -14,13 +14,5 @@ module.exports = function(sequelize, DataTypes) {
         },
     });
 
-// user.associate = function(models) {
-    //     user.belongsTo(models.spaces, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // }; 
-
-return user;
- };
+    return user;
+};

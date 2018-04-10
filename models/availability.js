@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var availability= sequelize.define("Availability", {
+    var availability= sequelize.define("availability", {
         check_in_time: { 
             type: DataTypes.DATE,
             allowNull: false,
@@ -8,17 +8,19 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-       
+        is_available: {
+            type: DataTypes.BOOLEAN,
+            default: true,
+            allowNull: false,
+        },
+        lot_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        space_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
     });
-
-    // Availability.associate = function(models) {
-    //     Availability.belongsTo(models.spaces, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // }; 
-
-    return availability;
-    
-    };
+    return availability;    
+};
