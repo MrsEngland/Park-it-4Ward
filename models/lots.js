@@ -36,6 +36,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         }
+<<<<<<< HEAD
 });
 
     // ParkingLots.associate = function(models) {
@@ -43,6 +44,9 @@ module.exports = function(sequelize, DataTypes) {
     
     //     });
     // };
+=======
+    });
+>>>>>>> fdec8f5c54f16e589001b4204c254c2f948097a0
         
     return ParkingLots;
 };

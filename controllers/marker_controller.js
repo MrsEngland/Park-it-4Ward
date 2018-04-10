@@ -40,10 +40,10 @@ function initMap() {
 
       var marker = new google.maps.Marker({
         position: myLatlng,
-        title: result [i].name,
+        title: result [i].lot_name,
         customInfo: {
-          name: result[i].name,
-          address: result[i].address,
+          name: result[i].lot_name,
+          address: result[i].lot_address,
           available: result[i].spot_id
         };
       });

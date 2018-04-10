@@ -27,19 +27,12 @@ module.exports = function(sequelize, DataTypes) {
         },
         lot_id: {
             type: DataTypes.INTEGER,
-            references: 'ParkingLots',
-            referencesKey: 'id'
+            references: {
+                model: 'ParkingLots',
+                key: 'id'
+            }
         }
     });
-
-    // ParkingSpaces.associate = function(models) {
-    //     ParkingSpaces.belongsTo(models.Lots, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // }; 
     
-    return ParkingSpaces;
-    
+    return ParkingSpaces;  
 };
