@@ -42,6 +42,7 @@ body {
     border-radius: 25px;
     height: 100%;
     font-size: 12px;
+    font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: black;
     -webkit-animation-delay: 6s;
@@ -54,6 +55,7 @@ body {
     border-radius: 25px;
     height: 100%;
     font-size: 12px;
+    font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: black;
     -webkit-animation-delay: 8s;
@@ -65,6 +67,19 @@ body {
     border-radius: 25px;
     height: 100%;
     font-size: 12px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: black;
+    -webkit-animation-delay: 7s;
+}
+
+#logInBtn {
+    transition: transform .2s; /* Animation */
+    width: 100%;
+    border-radius: 25px;
+    height: 100%;
+    font-size: 12px;
+    font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: black;
     -webkit-animation-delay: 7s;
@@ -86,6 +101,7 @@ body {
 .modal {
     border-radius: 50px;
     font-size: 13px;
+    font-family: 'Fjalla One', sans-serif;
     text-align: center;
 }
 
