@@ -17,8 +17,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         zip: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
+        },
         latitude: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -39,10 +40,10 @@ module.exports = function(sequelize, DataTypes) {
 });
 
     // ParkingLots.associate = function(models) {
-    //         ParkingLots.hasMany(models.Spaces, {
+    //     ParkingLots.hasMany(models.Spaces, {
+    
+    //     });
+    // };
         
-    //         });
-    //     };
-        
-        return ParkingLots;
-    };
+    return ParkingLots;
+};

@@ -5,7 +5,7 @@ module.exports = function(app) {
 
 //route to get all parking spaces
 app.get("/api/getParkingSpaces", function(req, res) {
-    db.Parking.findAll({
+    db.ParkingSpaces.findAll({
         where: {
             id: req.body.lot_id
         }
@@ -16,7 +16,7 @@ app.get("/api/getParkingSpaces", function(req, res) {
 
 //route to check into a space
 app.put("/api/checkInToSpace", function(req, res) {
-    db.Parking.update(req.body, 
+    db.ParkingSpaces.update(req.body, 
     {
         where: {
             id: req.body.lot_id,
@@ -33,7 +33,7 @@ app.put("/api/checkInToSpace", function(req, res) {
 
 //route to check out of a space
 app.put("/api/checkOutOfSpace", function(req, res) {
-    db.Parking.update(req.body,
+    db.ParkingSpaces.update(req.body,
     {
         where: {
             id: req.body.lot_id,

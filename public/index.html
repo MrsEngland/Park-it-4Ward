@@ -29,6 +29,7 @@
 
 <body>
 
+<div class="container" id="mainContainer">
   <div class="container" id="logo">
     <div class="row">
       <div class="col-sm-4 centered">
@@ -39,9 +40,10 @@
          </div>
       </div>
     </div>
+    <br>
 
       <div class="row">          
-        <div class="col-sm-4 centered">
+        <div class="col-sm-2 centered">
           <div class="row">
             <div class=" navBtns col-sm-6 centered">
               <a href="parking.html">
@@ -68,7 +70,18 @@
         </div>
       </div>
     </div>
-  </div>
+  <br>
+
+  <div class="row item animated bounceInUp">          
+      <div id="logIn" class="col-sm-4 centered">
+        <div class="row">
+          <div class="col-sm-4 centered item animated bounceInUp">
+            <a href="#logInModal" ><button class="item animated bounceInUp" id="logInBtn">LOG IN</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   <br>
 
   <div class="row item animated bounceInUp">          
@@ -82,7 +95,11 @@
       </div>
     </div>
   </div>
+</div>
+<br>
+<br>
 
+  <br>
  
   <div class="modal item animated flipInX" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -91,18 +108,19 @@
               <h4 class="modal-title">Register with Park It 4ward</h4>
             </div>
             <div class="modal-body">
-                <div id="auth-container">Sign up information form will go here in this modal.
+                <div id="auth-container">
                   <br>
                   <form>
                     Email address:<br>
                     <input type="text" name="email"><br>
                     Username:<br>
                     <input type="text" name="Username"><br>
+                    Password:<br>
+                    <input type="text" name="Password"><br>
                     Payment Information:<br>
                     <input type="text" name="Payment Information">
                     <br>
                     <br>
-                    <input >
                     </form>
                 </div>
             </div>
@@ -166,6 +184,7 @@
         </div>
     </div>
 </div>
+
 	<footer></footer>
 </body>
 
