@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var availability= sequelize.define("Availability", {
         check_in_time: { 
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         expiration_time: {

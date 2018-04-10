@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var ParkingLots = sequelize.define("user", {
+    var user = sequelize.define("user", {
         name: { 
             type: DataTypes.STRING,
             allowNull: false,
@@ -21,3 +21,6 @@ module.exports = function(sequelize, DataTypes) {
     //         }
     //     });
     // }; 
+
+return user;
+ };
