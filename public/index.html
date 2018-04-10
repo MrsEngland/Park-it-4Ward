@@ -237,18 +237,17 @@
 });
 
   $('#clear-form').on('click', function() {
-                        var newUsr = {
-                          username: $('#form-user').val().trim(),
-                          email: $('#form-email').val().trim(),
-                          password: $('#form-pw').val().trim(),
-                          passwordMatch: $('#form-pw-confirm').val().trim()
-                        }
+    var newUsr = {
+    username: $('#form-user').val().trim(),
+    email: $('#form-email').val().trim(),
+    password: $('#form-pw').val().trim(),
+    passwordMatch: $('#form-pw-confirm').val().trim()
+    }
                       
-                      $.post('/register', newUsr).done(function(data) {
-                        console.log(data);
-                      })
-
-                      });
+    $.post('/register', newUsr).done(function(data) {
+      console.log(data);
+      })
+    });
 
 </script>
 </html
