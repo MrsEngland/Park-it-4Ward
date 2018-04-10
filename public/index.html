@@ -110,23 +110,22 @@
             <div class="modal-body">
                 <div id="auth-container">
                   <br>
-                  <form>
-                    Email address:<br>
-                    <input type="text" name="email"><br>
-                    Username:<br>
-                    <input type="text" name="Username"><br>
-                    Password:<br>
-                    <input type="text" name="Password"><br>
-                    Payment Information:<br>
-                    <input type="text" name="Payment Information">
+                  <form method = "POST" action = "/register"></form>
+                    EMAIL ADDRESS:<br>
+                    <input id='form-email' type="text" name="email"><br>
+                    USERNAME:<br>
+                    <input id='form-user' type="text" name="Username"><br>
+                    PASSWORD:<br>
+                    <input id='form-pw' type="text" name="Password"><br>
+                    CONFIRM PASSWORD:<br>
+                    <input id='form-pw-confirm' type="text" name="Payment Information">
                     <br>
                     <br>
-                    </form>
+                    <button id="clear-form" class="btn btn-default centered" type="submit" value="Submit" data-dismiss="modal">Submit</button>
+                  </form>
                 </div>
-            </div>
+              </div>
             <div class="modal-footer">
-                <button id="clear-form" type="button" class="btn btn-default centered" type="submit" value="Submit" data-dismiss="modal" value="clear">Submit
-                </button>
             </div>
         </div>
     </div>
@@ -136,7 +135,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">About Park It 4ward</h4>
+              <h4 class="modal-title">ABOUT PARK IT 4WARD</h4>
             </div>
             <div class="modal-body">
                 <div id="about"><br><p>Park It 4Ward is a commmunity driven, shared parking project.  We aim to be the digital version of the traditional parking meter, by allowing our users to share the cost of a parking spot if you don't need it for the full paid time.  If you are looking for a spot click on the park button and see if any of our users have shared a vacant spot.  If no spots are available, please Park It 4Ward so that another user can take advantage of your generosity, just as you will benefit from someone's in the future!  Once you leave please click the leave button to let others know the spot is available.</p>
@@ -145,7 +144,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">Close
+                <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">CLOSE
                 </button>
             </div>
         </div>
@@ -159,10 +158,33 @@
               <h4 class="modal-title">Thank you for Parking It 4ward!  Please click "Confirm" below to confirm you are leaving.</h4>
             </div>
             <div class="modal-body">
+              <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CONFIRM
+              </button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="modal item animated flipInX" id="logInModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">LOG IN</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    USERNAME:<br>
+                    <input type="text" name="Username"><br>
+                    PASSWORD:<br>
+                    <input type="text" name="Password"><br>
+                    <br>
+                    <br>
+                    </form>
             </div>
             <div class="modal-footer">
-              <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">Confirm
-              </button>
+                <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
+                </button>
             </div>
         </div>
     </div>
@@ -172,13 +194,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Contact Park It 4ward</h4>
+              <h4 class="modal-title">CONTACT PARK IT 4WARD</h4>
             </div>
             <div class="modal-body">
                 Contact info will go here.
             </div>
             <div class="modal-footer">
-                <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">Close
+                <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE
                 </button>
             </div>
         </div>
@@ -206,9 +228,27 @@
         $("#aboutModal").modal('show');
 });
 
+  $("#logInBtn").click(function(){
+        $("#logInModal").modal('show');
+});
+
   $("#contactBtn").click(function(){
         $("#contactModal").modal('show');
 });
+
+  $('#clear-form').on('click', function() {
+                        var newUsr = {
+                          username: $('#form-user').val().trim(),
+                          email: $('#form-email').val().trim(),
+                          password: $('#form-pw').val().trim(),
+                          passwordMatch: $('#form-pw-confirm').val().trim()
+                        }
+                      
+                      $.post('/register', newUsr).done(function(data) {
+                        console.log(data);
+                      })
+
+                      });
 
 </script>
 </html
