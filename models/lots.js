@@ -29,12 +29,6 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         }
     });
-
-    // ParkingLots.associate = function(models) {
-    //     ParkingLots.hasMany(models.Spaces, {
-    
-    //     });
-    // };
         
     return ParkingLots;
 };
