@@ -19,7 +19,7 @@ app.put("/api/checkInToSpace", function(req, res) {
     db.ParkingSpaces.update(req.body, 
     {
         where: {
-            id: req.body.lot_id,
+            lot_id: req.body.lot_id,
             id: req.body.space_id
         }
     })
@@ -36,7 +36,7 @@ app.put("/api/checkOutOfSpace", function(req, res) {
     db.ParkingSpaces.update(req.body,
     {
         where: {
-            id: req.body.lot_id,
+            lot_id: req.body.lot_id,
             id: req.body.space_id
         }
     })
