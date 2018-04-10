@@ -20,6 +20,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
+        lot_id: {
+            type: DataTypes.INTEGER,
+            references: 'ParkingLots',
+            referencesKey: 'id'
+        }
     });
 
     // ParkingSpaces.associate = function(models) {
@@ -32,6 +37,4 @@ module.exports = function(sequelize, DataTypes) {
     
     return ParkingSpaces;
     
-    };
-
-    
+};
