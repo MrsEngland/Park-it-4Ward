@@ -2,6 +2,11 @@ body {
     background-color: #f9faff;
 }
 
+.navbar {
+    background-color: #67605c;
+    padding: 5px, 0px, 0px, 0px;
+}
+
 .centered {
     margin-left: auto;
     margin-right: auto;
@@ -16,86 +21,53 @@ body {
 	display: block;
     border-radius: 30px;
     margin-bottom: 10px;
-    transition: transform .2s; /* Animation */
     max-width: 100%;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-delay: 1s;
+    -webkit-animation-duration: 3s; /* Amimation*/
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 #parkBtn {
-	transition: transform .2s; /* Animation */
     max-width: 100%;
     margin: 0, 0;
-    -webkit-animation-delay: 4s;
+    -webkit-animation-delay: 4s; /* Amimation*/
 }
 
 #leaveBtn {
-    transition: transform .2s; /* Animation */
     max-width: 100%;
     margin: 0, 0;
-    -webkit-animation-delay: 5s;
+    -webkit-animation-delay: 5s; /* Amimation*/
 }
 
 #regBtn {
-    transition: transform .2s; /* Animation */
-    width: 100%;
     border-radius: 25px;
-    height: 100%;
-    font-size: 12px;
+    font-size: 18px;
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
-    color: black;
-    -webkit-animation-delay: 6s;
+    color: white;
+    -webkit-animation-delay: 6s; /* Amimation*/
 }
 
 
 #contactBtn {
-    transition: transform .2s; /* Animation */
-    width: 100%;
     border-radius: 25px;
-    height: 100%;
-    font-size: 12px;
+    font-size: 18px;
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
-    color: black;
-    -webkit-animation-delay: 8s;
+    color: white;
+    -webkit-animation-delay: 8s; /* Amimation*/
 }
 
 #logInBtn {
-    transition: transform .2s; /* Animation */
-    width: 100%;
     border-radius: 25px;
-    height: 100%;
-    font-size: 12px;
+    font-size: 18px;
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
-    color: black;
-    -webkit-animation-delay: 7s;
+    color: white;
+    -webkit-animation-delay: 7s; /* Amimation*/
 }
 
-#logInBtn {
-    transition: transform .2s; /* Animation */
-    width: 100%;
-    border-radius: 25px;
-    height: 100%;
-    font-size: 12px;
-    font-family: 'Fjalla One', sans-serif;
-    text-align: center;
-    color: black;
-    -webkit-animation-delay: 7s;
-}
-
-#parkBtn:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-#leaveBtn:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-#regBtn:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
 #logoPic:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.2); /* 120% zoom */
 }
 
 .modal {
@@ -105,10 +77,11 @@ body {
     text-align: center;
 }
 
-.modal-header {
-    background-color: lightgrey;
+.modal-body {
+    background-color: #f9faff;
 }
 
-.modal-footer {
-    background-color: lightgrey;
+.modal-header {
+    background-color: #67605c;
+    color: white;
 }

@@ -30,6 +30,18 @@
 
 <body>
 
+<header>
+  <nav class="navbar navbar-default navbar-fixed">
+    <div class="container-fluid">
+      <div class="navbar">
+        <a class="btn primary item animated bounceInUp" id="regBtn" href="#mymodal" role="button" aria-expanded="false">REGISTER</a></button>
+        <a class="btn primary item animated bounceInUp" id="logInBtn" href="#logInModal" role="button" aria-expanded="false">LOG-IN</a></button>
+        <a class="btn primary item animated bounceInUp" id="contactBtn" href="#contactModal" role="button" aria-expanded="false">CONTACT US</a></button>
+      </div>
+    </div>
+  </nav>
+</header>
+
 <div class="container" id="mainContainer">
   <div class="container" id="logo">
     <div class="row">
@@ -43,166 +55,124 @@
     </div>
     <br>
 
-      <div class="row">          
-        <div class="col-sm-2 centered">
-          <div class="row">
-            <div class=" navBtns col-sm-6 centered">
-              <a href="parking.html">
-                <img src="assets/images/park.png" class="item animated bounceInLeft" id="parkBtn" alt="car">
-              </a>
-            </div>
-            <div class="navBtns col-sm-6 centered">
-              <a href="#leaveModal">
-                <img src="assets/images/leave.png" class="item animated bounceInRight" id="leaveBtn" alt="car">
-              </a>
-            </div>
-          </div>
+  <div class="row">          
+    <div class="col-sm-3 centered">
+      <div class="row">
+        <div class=" navBtns col-sm-6 centered">
+          <a href="parking.html">
+            <img src="assets/images/park.png" class="item animated bounceInLeft" id="parkBtn" alt="car">
+          </a>
+        </div>
+        <div class="navBtns col-sm-6 centered">
+          <a href="#leaveModal">
+            <img src="assets/images/leave.png" class="item animated bounceInRight" id="leaveBtn" alt="car">
+          </a>
         </div>
       </div>
-      <br>
+    </div>
+  </div>
+  <br>
     
-     <div class="row item animated bounceInUp">          
-      <div id="signUp" class="col-sm-4 centered">
-        <div class="row">
-          <div class="col-sm-4 centered item animated bounceInUp">
-            <a href="#myModal" ><button class="item animated bounceInUp" id="regBtn">SIGN UP</button>
-            </a>
-          </div>
+  <div class="modal item animated flipInX" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Register with Park It 4ward</h4>
         </div>
-      </div>
-    </div>
-  <br>
-
-  <div class="row item animated bounceInUp">          
-      <div id="logIn" class="col-sm-4 centered">
-        <div class="row">
-          <div class="col-sm-4 centered item animated bounceInUp">
-            <a href="#logInModal" ><button class="item animated bounceInUp" id="logInBtn">LOG IN</button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  <br>
-
-  <div class="row item animated bounceInUp">          
-      <div id="contact" class="col-sm-4 centered">
-        <div class="row">
-          <div class="col-sm-4 centered item animated bounceInUp">
-            <a href="#contactModal" ><button class="item animated bounceInUp" id="contactBtn">CONTACT US</button>
-            </a>
+        <div class="modal-body">
+          <div id="auth-container">
+          <br>
+            <form method = "POST" action = "/register"></form>
+              EMAIL ADDRESS:<br>
+              <input id='form-email' type="text" name="email"><br>
+              USERNAME:<br>
+              <input id='form-user' type="text" name="Username"><br>
+              PASSWORD:<br>
+              <input id='form-pw' type="text" name="Password"><br>
+              CONFIRM PASSWORD:<br>
+              <input id='form-pw-confirm' type="text" name="Payment Information">
+              <br>
+              <br>
+              <button id="clear-form" class="btn btn-default centered" type="submit" value="Submit" data-dismiss="modal">Submit</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<br>
-<br>
 
-  <br>
- 
-  <div class="modal item animated flipInX" id="myModal" role="dialog">
+  <div class="modal item animated flipInX" id="aboutModal" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Register with Park It 4ward</h4>
-            </div>
-            <div class="modal-body">
-                <div id="auth-container">
-                  <br>
-                  <form method = "POST" action = "/register"></form>
-                    EMAIL ADDRESS:<br>
-                    <input id='form-email' type="text" name="email"><br>
-                    USERNAME:<br>
-                    <input id='form-user' type="text" name="Username"><br>
-                    PASSWORD:<br>
-                    <input id='form-pw' type="text" name="Password"><br>
-                    CONFIRM PASSWORD:<br>
-                    <input id='form-pw-confirm' type="text" name="Payment Information">
-                    <br>
-                    <br>
-                    <button id="clear-form" class="btn btn-default centered" type="submit" value="Submit" data-dismiss="modal">Submit</button>
-                  </form>
-                </div>
-              </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">ABOUT PARK IT 4WARD</h4>
         </div>
+        <div class="modal-body">
+          <div id="about"><br><p>Park It 4Ward is a commmunity driven, shared parking project.  We aim to be the digital version of the traditional parking meter, by allowing our users to share the cost of a parking spot if you don't need it for the full paid time.  If you are looking for a spot click on the park button and see if any of our users have shared a vacant spot.  If no spots are available, please Park It 4Ward so that another user can take advantage of your generosity, just as you will benefit from someone's in the future!  Once you leave please click the leave button to let others know the spot is available.</p>
+          <p>*Please note all information is only as accurate as the user who inputs it, Park It 4Ward assumes no liability for fees incurred from use of inaccurate information.</p>
+          <p>Thanks for visiting!</p>
+          <br>
+          <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">CLOSE
+          </button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="modal item animated flipInX" id="aboutModal" role="dialog">
+  <div class="modal item animated flipInX" id="leaveModal" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">ABOUT PARK IT 4WARD</h4>
-            </div>
-            <div class="modal-body">
-                <div id="about"><br><p>Park It 4Ward is a commmunity driven, shared parking project.  We aim to be the digital version of the traditional parking meter, by allowing our users to share the cost of a parking spot if you don't need it for the full paid time.  If you are looking for a spot click on the park button and see if any of our users have shared a vacant spot.  If no spots are available, please Park It 4Ward so that another user can take advantage of your generosity, just as you will benefit from someone's in the future!  Once you leave please click the leave button to let others know the spot is available.</p>
-                <p>*Please note all information is only as accurate as the user who inputs it, Park It 4Ward assumes no liability for fees incurred from use of inaccurate information.</p>
-                <p>Thanks for visiting!</p>
-                <br>
-                <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">CLOSE
-                </button>
-                </div>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Thank you for Parking It 4ward!  Please click "Confirm" below to confirm you are leaving.</h4>
         </div>
+        <div class="modal-body">
+          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CONFIRM
+          </button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="modal item animated flipInX" id="leaveModal" role="dialog">
+  <div class="modal item animated flipInX" id="logInModal" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Thank you for Parking It 4ward!  Please click "Confirm" below to confirm you are leaving.</h4>
-            </div>
-            <div class="modal-body">
-              <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CONFIRM
-              </button>
-            </div>
-            
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">LOG IN</h4>
         </div>
+        <div class="modal-body">
+          <form>
+            USERNAME:<br>
+            <input type="text" name="Username"><br>
+            PASSWORD:<br>
+            <input type="text" name="Password"><br>
+            <br>
+            <br>
+          </form>
+          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
+          </button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="modal item animated flipInX" id="logInModal" role="dialog">
+  <div class="modal item animated flipInX" id="contactModal" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">LOG IN</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    USERNAME:<br>
-                    <input type="text" name="Username"><br>
-                    PASSWORD:<br>
-                    <input type="text" name="Password"><br>
-                    <br>
-                    <br>
-                    </form>
-                    <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
-                </button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          h4 class="modal-title">CONTACT PARK IT 4WARD</h4>
         </div>
-    </div>
-</div>
-
-<div class="modal item animated flipInX" id="contactModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">CONTACT PARK IT 4WARD</h4>
-            </div>
-            <div class="modal-body">
-                <p>Contact info will go here.</p>
-                <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE
-                </button>
-            </div>
+        <div class="modal-body">
+          <p>Contact info will go here.</p>
+          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE
+          </button>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
 	<footer></footer>
-</body>
+  </body>
 
 <script type="text/javascript">
   $("#parkBtn").click(function(){
