@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         expiration_time: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
        
