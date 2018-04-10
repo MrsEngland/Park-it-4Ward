@@ -20,6 +20,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        latitude: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        longitude: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         available_spaces: {
             type: DataTypes.INTEGER,
             allowNull: false,
