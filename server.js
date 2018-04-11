@@ -3,13 +3,10 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var cookieParser = require ('cookie-parser');
 var expressValidator = require('express-validator');
-var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
-
 var session = require('express-session');
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-var mySQLStore = require("express-mysql-session")(session);
 var db = require("./models");
 // var bcrypt = require('bcrypt');
 
