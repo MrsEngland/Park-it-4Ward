@@ -20,7 +20,7 @@ app.get("/", function(req, res) {
   
   //parking route loads parking.html
 
-  app.get("/register", authenticationMiddleware(), function(req, res) {
+  app.get("/parking", authenticationMiddleware(), function(req, res) {
 
     var pretendData = {
       layout: false,
@@ -46,6 +46,7 @@ app.get("/", function(req, res) {
     }
       res.render('parking', pretendData)
   });
+
   
   app.get("/logout"), function (req, res) { 
     req.logout();
