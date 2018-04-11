@@ -19,9 +19,21 @@ app.get("/", function(req, res) {
   // });
   
   //parking route loads parking.html
-  app.get("/parking", function(req, res) {
+<<<<<<< HEAD
+  app.get("/register", authenticationMiddleware(), function(req, res) {
     res.sendFile(path.join(__dirname, "parking.html"));
+=======
+
+  app.get("/parking", authenticationMiddleware(), function(req, res) {
+      res.render('parking', {layout: false})
+>>>>>>> 7e0229f2463c803f21aea367d9f33371d5b66fe2
   });
+  
+  app.get("/logout"), function (req, res) { 
+    req.logout();
+    req.session.destroy(); 
+    res.sendFile(path.join(__dirname, "index.html"))
+  }
   
   //leaving route loads leaving.html
   // app.get("/leaving", function(req, res) {

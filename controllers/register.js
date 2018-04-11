@@ -53,7 +53,7 @@ app.get('/register', function(req, res, next){
 const db = require('./config/connection.js');
 
 bcrypt.hash(password, saltRounds, function(err, hash) {
-connection.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function (  
+db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function (  
   error, results, fields) { 
       if(error) throw error;
 
