@@ -19,7 +19,7 @@ app.get("/", function(req, res) {
   // });
   
   //parking route loads parking.html
-  app.get("/parking", authenticationMiddleware(), function(req, res) {
+  app.get("/register", authenticationMiddleware(), function(req, res) {
     res.sendFile(path.join(__dirname, "parking.html"));
   });
   

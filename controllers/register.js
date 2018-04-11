@@ -2,45 +2,46 @@
 var fs = require("fs");
 var express = require('express')
 var path = require("path");
+var sequelize = require("sequelize")
 var cookieParser = require ('cookie-parser');
-var bodyParser = requier('body-parser');
+var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
+var mysql = require('mysql');
 
 var session = require ('express-session')
 var passport = require ('passport')
 var LocalStrategy = require('passport-local').Strategy;
-var MySQLStore = require('express-mysql-session')(session); 
+var MySQLStore = require('express-mysql-session')
 var db = require("../models");
-var bcrypt = requier('bcrypt');
+var bcrypt = require('bcrypt');
 var app = express(); 
 
 app.use(bodyParser.json());
-app.user(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(expressValidator()); 
 app.use(cookieParser())
 
-var sessionStore = newMySQLStore(options);
 
-app.use(session({
-  secret: 'cat',
-  resave: false, 
-  store: sessionStore, 
-  saveUninitialized: false,
-}));
+app.use(expressValidator())
+
+// var sessionStore = newMySQLStore(options);
+
+// app.use(session({
+//   secret: 'cat',
+//   resave: false, 
+//   store: sessionStore, 
+//   saveUninitialized: false,
+// }));
 
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 
 module.exports = function(app) {
-app.get('/register', function(req, res, next){ 
-    res.render('register', {title: 'Registration'})
-  
-  });
 
 
   //looks like all of this is in his index.js
@@ -57,8 +58,7 @@ app.get('/register', function(req, res, next){
 
   })
 
-  app.use('/', index);
-  app.use('/parking',parking)
+
 
   passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -107,9 +107,7 @@ app.get('/register', function(req, res, next){
 
       res.render('register', 
       {title: 'Registration Error',
-      errors: errors,
-  
-  });
+      errors: errors});
   } else {
 
   const email = req.body.email

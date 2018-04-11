@@ -11,7 +11,7 @@ var expressValidator = require('express-validator');
 var cookieParser = require ('cookie-parser')
 
 var session = require('express-session');
-var MySQLStore = require('express-mysql-session')(session);
+var MySQLStore = require('express-mysql-session')
 
 
 // var bcrypt = require('bcrypt');
