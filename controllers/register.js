@@ -1,94 +1,26 @@
 
 var fs = require("fs");
-var express = require('express')
 var path = require("path");
-var cookieParser = require ('cookie-parser');
-var bodyParser = requier('body-parser');
-var expressValidator = require('express-validator');
-
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
-
+var expressValidator = require('express-validator');
 var session = require ('express-session')
 var passport = require ('passport')
 var LocalStrategy = require('passport-local').Strategy;
+var cookieParser = require ('cookie-parser')
+var express = require ('express')
 var MySQLStore = require('express-mysql-session')(session); 
 var db = require("../models");
-var bcrypt = requier('bcrypt');
-var app = express(); 
-
-app.use(bodyParser.json());
-app.user(bodyParser.urlencoded({extended: false}))
-app.use(expressValidator()); 
-app.use(cookieParser())
-
-var sessionStore = newMySQLStore(options);
-
-app.use(session({
-  secret: 'cat',
-  resave: false, 
-  store: sessionStore, 
-  saveUninitialized: false,
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 module.exports = function(app) {
 app.get('/register', function(req, res, next){ 
     res.render('register', {title: 'Registration'})
   
   });
-
-
-  //looks like all of this is in his index.js
-
-
-  app.post('/login', passport.authenticate('local', {
-    successRedirect: '/parking',
-    failureRedirect:  'index'
-  }));
-
-  app.use(function(req, res, next) { 
-      res.locals.isAuthenticated = req.isAuthenticated(); 
-      next();
-
-  })
-
-  app.use('/', index);
-  app.use('/parking',parking)
-
-  passport.use(new LocalStrategy(
-    function(username, password, done) {
-      console.log(username);
-      console.log(password);
-
-      const db = require('./db');
-
-      db.query('SELECT id, password FROM users WHERE username = ?', [username]), 
-        function(err, results, fields) {
-          if (err) {done(err)};
-
-          if (results.length === 0) { 
-            done(null, false);
-          } else { 
-                const hash= results[0].password.toString();
-
-                 bcrypt.compare(password, hash, function(err, response) { 
-                    if(response ===true) { 
-                       return done(null, {user_id: results[0].id});
-                     } else { 
-                        return done (null, false)
-                      }
-                 });       
-                }  
-        };
-     }
-  ));
   
-
+  
   app.post('/register', function(req, res, next){ 
     req.checkBody('username', 'Username field cannot be empty.').notEmpty();
     req.checkBody('username', 'Username must be between 4-15 characters long.').len(4, 15);
@@ -105,7 +37,7 @@ app.get('/register', function(req, res, next){
     if (errors) {
       console.log('errors: ${JSON.stringify(error)}')
 
-      res.render('register', 
+      res.render('', 
       {title: 'Registration Error',
       errors: errors,
   
@@ -142,3 +74,14 @@ db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [user
 }
 });
 }
+
+///this is all authentication packages
+passport.serializeUser(function(user_id, done) {
+done(null, user_idid);
+});
+
+passport.deserializeUser(function(user_id, done) {
+done(err, user_id);
+});
+
+

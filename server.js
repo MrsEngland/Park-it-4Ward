@@ -3,7 +3,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var cookieParser = require ('cookie-parser');
 var expressValidator = require('express-validator');
-var MySQLStore = require('express-mysql-session')(session);
+var MySQLStore = require('express-mysql-session')
 var session = require('express-session');
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
@@ -35,6 +35,8 @@ var options = {
 };
 
 var sessionStore = new MySQLStore(options);
+var session = require('express-session');
+
 
 app.use(session({
   secret: 'keyboard cat',

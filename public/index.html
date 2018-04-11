@@ -82,7 +82,7 @@
         <div class="modal-body">
           <div id="auth-container">
           <br>
-            <form method = "POST" action = "/register"></form>
+            <form id="regForm" method = "POST" action = "/register"></form>
               EMAIL ADDRESS:<br>
               <input id='form-email' type="text" name="email"><br>
               USERNAME:<br>
@@ -93,7 +93,7 @@
               <input id='form-pw-confirm' type="text" name="Payment Information">
               <br>
               <br>
-              <button id="clear-form" class="btn btn-default centered" type="submit" value="Submit" data-dismiss="modal">Submit</button>
+              <button id="clear-form" class="btn btn-default centered" type="submit" value="clear"  data-dismiss="modal">Submit</button>
             </form>
           </div>
         </div>
@@ -141,7 +141,7 @@
           <h4 class="modal-title">LOG IN</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="signInForm">
             USERNAME:<br>
             <input type="text" name="Username"><br>
             PASSWORD:<br>
@@ -149,7 +149,7 @@
             <br>
             <br>
           </form>
-          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
+          <button id="logInConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
           </button>
         </div>
       </div>
@@ -164,7 +164,7 @@
         </div>
         <div class="modal-body">
           <p>Contact info will go here.</p>
-          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE
+          <button id=id="close" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE
           </button>
         </div>
       </div>
@@ -211,7 +211,12 @@
     $.post('/register', newUsr).done(function(data) {
       console.log(data);
       })
+    $("input[type=text]").val('');
     });
+
+  $("#logInConfirm").on('click', function() {
+    $("input[type=text]").val('');
+  })
 
 </script>
 </html>
