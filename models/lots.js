@@ -32,13 +32,13 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        total_spaces: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         default_time: {
             type: DataTypes.INTEGER,
             defaultValue: 12,
-            allowNull: false,
-        },
-        spot_id: {
-            type: DataTypes.INTEGER,
             allowNull: false,
         }
     });
