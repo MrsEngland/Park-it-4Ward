@@ -20,7 +20,7 @@ app.get("/", function(req, res) {
   
   //parking route loads parking.html
   app.get("/parking", function(req, res) {
-    res.sendFile(path.join(__dirname, "parking.html"));
+      res.render('parking', {layout: false})
   });
   
   //leaving route loads leaving.html
