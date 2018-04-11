@@ -34,6 +34,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         default_time: {
             type: DataTypes.INTEGER,
+            defaultValue: 12,
             allowNull: false,
         },
         spot_id: {

@@ -5,12 +5,12 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         expiration_time: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         is_available: {
             type: DataTypes.BOOLEAN,
-            default: true,
+            defaultValue: 1,
             allowNull: false,
         },
         lot_id: {

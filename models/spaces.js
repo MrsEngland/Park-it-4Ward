@@ -2,22 +2,22 @@ module.exports = function(sequelize, DataTypes) {
     var ParkingSpaces = sequelize.define("parking_spaces", {
         isHandicapped: { 
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
             allowNull: true,
         },
         compactCarOnly: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
             allowNull: true,
         },
         electric_charging: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
             allowNull: true,
         },
         motorcycle: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
             allowNull: true,
         },
         lot_id: {

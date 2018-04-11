@@ -20,6 +20,7 @@ module.exports = function(app) {
         db.parking_spaces.findAll({
             include: [{
                 model: "availability",
+                as: "avail",
                 where: {
                     is_available: true,
                     lot_id: parseInt(req.query.lot_id)
@@ -34,9 +35,10 @@ module.exports = function(app) {
 
     //route to check into a space
     app.put("/api/checkInToSpace", function(req, res) {
-        db.availailities.update({
+        db.availability.update({
             check_in_time: moment().format("YYYY-MM-DD HH:mm:ss"),
-            expiration_time: moment().add(1,'h').format("YYYY-MM-DD HH:mm:ss") // expiration time is 1 hour from now
+            expiration_time: moment().add(1,'h').format("YYYY-MM-DD HH:mm:ss"), // expiration time is 1 hour from now
+            is_available: false
           }, {
             where: {
                 lot_id: parseInt(req.query.lot_id),
@@ -51,7 +53,7 @@ module.exports = function(app) {
 
     //route to check out of a space
     app.put("/api/checkOutOfSpace", function(req, res) {
-        db.availailities.update({
+        db.availability.update({
             check_in_time: 0,
             expiration_time: 0,
             is_available: true
