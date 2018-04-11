@@ -38,9 +38,11 @@ Object.keys(db).forEach(function(modelName) {
   }
 });
 
+// establish 1:n relationship between parking lots and parking spaces
+db.parking_lots.hasMany(db.parking_spaces);
+db.parking_spaces.belongsTo(db.parking_lots);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
