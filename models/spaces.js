@@ -20,6 +20,19 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: false,
             allowNull: true,
         },
+        check_in_time: { 
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        expiration_time: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        is_available: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: 1,
+            allowNull: false,
+        },
         lot_id: {
             type: DataTypes.INTEGER,
             references: {
