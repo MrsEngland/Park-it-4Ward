@@ -148,22 +148,22 @@
     <!--// </script>-->
     <div class="container" id="tableData">
         <table class="table table-hover">
-                {{#each parkingspot}}
-                <div>{{question}}</div>
+                {{#each lot}}
+                <h3>{{lotName}}</h3>
                 <table>
                     <thead>
                     <tr>
-                        {{#each gridheader}}
-                        <th>{{header}}</th>
-                        {{/each}}
+
+                        <th>Space Number</th>
+                        <th>Time Remaining</th>
+
                     </tr>
                     </thead>
                     <tbody>
-                    {{#each gridrow}}
+                    {{#each parkingSpace}}
                     <tr>
-                        <td>{{col1}}</td>
-                        <td>{{col2}}</td>
-                        <td>{{col3}}</td>
+                        <td>{{spaceNumber}}</td>
+                        <td>{{timeRemaining}}</td>
                     </tr>
                     {{/each}}
                     </tbody>
