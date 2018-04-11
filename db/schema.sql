@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS parking;
 CREATE DATABASE parking;
 USE parking;
 
-CREATE TABLE parkinglots (
+CREATE TABLE parking_lots (
   name VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL,
@@ -13,14 +13,15 @@ CREATE TABLE parkinglots (
   longitude NUMERIC (10,2) NOT NULL,
   available_spaces NUMERIC (10) NOT NULL, 
   default_time NUMERIC (5) NOT NULL,
+  spot_id INTEGER (5) NOT NULL, 
 );
 
-CREATE TABLE parkingspaces (
+CREATE TABLE parking_spaces (
   isHandicapped BOOLEAN default false,
   compactCarOnly BOOLEAN default false,
-  isAvailable BOOLEAN default true,
   electric_charging BOOLEAN default false,
   motorcycle BOOLEAN default false,
+  lot_id INTEGER (5) NOT NULL, 
 );
 
 CREATE TABLE availability (
@@ -33,6 +34,7 @@ CREATE TABLE user (
   email VARCHAR (100) NOT NULL,
   password VARCHAR (100) NOT NULL,
 );
+
 CREATE TABLE IF NOT EXISTS `sessions` (
   `session_id` varchar(128) COLLATE utf8mb4_bin NOT NULL,
   `expires` int(11) unsigned NOT NULL,
