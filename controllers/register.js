@@ -5,7 +5,6 @@ var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
 var expressValidator = require('express-validator');
 var session = require ('express-session')
 var passport = require ('passport')
@@ -38,7 +37,7 @@ app.get('/register', function(req, res, next){
     if (errors) {
       console.log('errors: ${JSON.stringify(error)}')
 
-      res.render('register', 
+      res.render('', 
       {title: 'Registration Error',
       errors: errors,
   
@@ -54,7 +53,7 @@ app.get('/register', function(req, res, next){
 const db = require('./config/connection.js');
 
 bcrypt.hash(password, saltRounds, function(err, hash) {
-db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function (  
+connection.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function (  
   error, results, fields) { 
       if(error) throw error;
 
