@@ -48,7 +48,7 @@
       <div class="col-sm-4 centered">
         <div id="pic">
           <a href="#aboutModal">
-          <img id="logoPic" class="item animated zoomIn centered" src="assets/images/logo.png" alt="car">
+          <img id="logoPic" class="item animated zoomInDown" src="assets/images/logo.png" alt="car">
           </a>
          </div>
       </div>
@@ -59,7 +59,7 @@
     <div class="col-sm-3 centered">
       <div class="row">
         <div class=" navBtns col-sm-6 centered">
-          <a href="../views/parking.html">
+          <a href="/parking.html">
             <img src="assets/images/PARK(1).png" class="item animated bounceInLeft" id="parkBtn" alt="car">
           </a>
         </div>
@@ -143,9 +143,9 @@
         <div class="modal-body">
           <form>
             USERNAME:<br>
-            <input type="text" name="Username"><br>
+            <input id="logInName" type="text" name="Username"><br>
             PASSWORD:<br>
-            <input type="text" name="Password"><br>
+            <input id="logInPWord" type="text" name="Password"><br>
             <br>
             <br>
           </form>
@@ -163,9 +163,15 @@
           <h4 class="modal-title">CONTACT PARK IT 4WARD</h4>
         </div>
         <div class="modal-body">
-          <p>Contact info will go here.</p>
-          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE
-          </button>
+          <p>EMAIL:  admin@PI4W.com</p>
+          <br>
+          <p>PHONE:  704.555.5555</p>
+          <br>
+          <p>ADDRESS:  320 E 9TH ST, CHARLOTTE, NC 28202</p>
+          <br>
+          <p>HOURS:  8am-10pm</p>
+          <br>
+          <button id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE</button>
         </div>
       </div>
     </div>
@@ -178,6 +184,8 @@
   $("#parkBtn").click(function(){
   var newURL = "parking.html";
             window.location = newURL;
+  var newUsr;
+  var confirmUser;
 });
 
   $("#leaveBtn").click(function(){

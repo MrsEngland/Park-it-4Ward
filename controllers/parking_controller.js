@@ -17,12 +17,17 @@ module.exports = function(app) {
     });
 
     app.get("/api/getAvailableParkingSpaces", function(req, res) {
-        db.parking_spaces.findAll({
+        var whereClause = {
             where: {
-                lot_id: parseInt(req.query.lot_id),
                 is_available: true
             }
-        }).then(function(dbParking) {
+        };
+
+        if (req.query.lot_id) {
+            whereClause.where.lot_id = parseInt(req.query.lot_id)
+        }
+
+        db.parking_spaces.findAll(whereClause).then(function(dbParking) {
             res.json(dbParking);
         }).catch(function(err) {
             res.json(err);
@@ -31,9 +36,13 @@ module.exports = function(app) {
 
     //route to check into a space
     app.put("/api/checkInToSpace", function(req, res) {
+        var timeToExpiry = 1;
+        var dateFormat = "YYYY-MM-DD HH:mm:ss";
+        var currentDate = moment();
+        var expirationDate = currentDate.add(timeToExpiry,'h').format(dateFormat);  // expiration time is 1 hour from now
         db.parking_spaces.update({
-            check_in_time: moment().format("YYYY-MM-DD HH:mm:ss"),
-            expiration_time: moment().add(1,'h').format("YYYY-MM-DD HH:mm:ss"), // expiration time is 1 hour from now
+            check_in_time: currentDate.format(dateFormat),
+            expiration_time: moment().add(1,'h').format("YYYY-MM-DD HH:mm:ss"),
             is_available: false
           }, {
             where: {
