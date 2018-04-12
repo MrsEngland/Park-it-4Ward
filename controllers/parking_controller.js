@@ -17,12 +17,17 @@ module.exports = function(app) {
     });
 
     app.get("/api/getAvailableParkingSpaces", function(req, res) {
-        db.parking_spaces.findAll({
+        var whereClause = {
             where: {
-                lot_id: parseInt(req.query.lot_id),
                 is_available: true
             }
-        }).then(function(dbParking) {
+        };
+
+        if (req.query.lot_id) {
+            whereClause.where.lot_id = parseInt(req.query.lot_id)
+        }
+
+        db.parking_spaces.findAll(whereClause).then(function(dbParking) {
             res.json(dbParking);
         }).catch(function(err) {
             res.json(err);
