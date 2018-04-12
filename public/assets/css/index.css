@@ -22,20 +22,20 @@ body {
     border-radius: 30px;
     margin-bottom: 10px;
     max-width: 100%;
-    -webkit-animation-duration: 3s; /* Amimation*/
-    -webkit-animation-delay: 1s; /* Amimation*/
+    -webkit-animation-duration: 1s; /* Amimation*/
+    -webkit-animation-delay: 0s; /* Amimation*/
 }
 
 #parkBtn {
     max-width: 100%;
     margin: 0, 0;
-    -webkit-animation-delay: 4s; /* Amimation*/
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 #leaveBtn {
     max-width: 100%;
     margin: 0, 0;
-    -webkit-animation-delay: 5s; /* Amimation*/
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 #regBtn {
@@ -44,7 +44,7 @@ body {
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: white;
-    -webkit-animation-delay: 6s; /* Amimation*/
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 
@@ -54,7 +54,7 @@ body {
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: white;
-    -webkit-animation-delay: 8s; /* Amimation*/
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 #logInBtn {
@@ -63,7 +63,7 @@ body {
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: white;
-    -webkit-animation-delay: 7s; /* Amimation*/
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 #logoPic:hover {
