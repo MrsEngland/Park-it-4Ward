@@ -16,11 +16,15 @@ var mysql = require('mysql');
 var session = require ('express-session')
 var passport = require ('passport')
 var LocalStrategy = require('passport-local').Strategy;
+var api = express.Router();
+
 var MySQLStore = require('express-mysql-session')
 var db = require("../models");
 var bcrypt = require('bcrypt');
 var app = express(); 
 
+var express = require('express');
+var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(expressValidator()); 
