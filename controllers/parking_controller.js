@@ -42,7 +42,7 @@ module.exports = function(app) {
         var expirationDate = currentDate.add(timeToExpiry,'h').format(dateFormat);  // expiration time is 1 hour from now
         db.parking_spaces.update({
             check_in_time: currentDate.format(dateFormat),
-            expiration_time: expirationDate,
+            expiration_time: moment().add(1,'h').format("YYYY-MM-DD HH:mm:ss"),
             is_available: false
           }, {
             where: {
