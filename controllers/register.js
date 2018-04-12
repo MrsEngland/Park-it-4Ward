@@ -20,7 +20,7 @@ var api = express.Router();
 
 var MySQLStore = require('express-mysql-session')
 var db = require("../models");
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var app = express(); 
 // Generate a salt
 var salt = bcrypt.genSaltSync(10);

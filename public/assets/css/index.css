@@ -44,17 +44,7 @@ body {
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: white;
-    -webkit-animation-delay: 1s; /* Amimation*/
-}
-
-
-#contactBtn {
-    border-radius: 25px;
-    font-size: 18px;
-    font-family: 'Fjalla One', sans-serif;
-    text-align: center;
-    color: white;
-    -webkit-animation-delay: 1s; /* Amimation*/
+    -webkit-animation-delay: 2s; /* Amimation*/
 }
 
 #logInBtn {
@@ -63,7 +53,16 @@ body {
     font-family: 'Fjalla One', sans-serif;
     text-align: center;
     color: white;
-    -webkit-animation-delay: 1s; /* Amimation*/
+    -webkit-animation-delay: 2s; /* Amimation*/
+}
+
+#contactBtn {
+    border-radius: 25px;
+    font-size: 18px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: white;
+    -webkit-animation-delay: 2s; /* Amimation*/
 }
 
 #logoPic:hover {

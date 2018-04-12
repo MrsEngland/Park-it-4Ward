@@ -54,6 +54,14 @@ module.exports = function(app) {
           }).catch(function(err) {
             res.json(err);
         });
+        var expireTask = function() {
+            db.parking_spaces.update({
+                expiration_time: moment().add(1,'h').format("YYYY-MM-DD HH:mm:ss"),
+                is_available: false
+            });
+
+        scheduleExpirationTask(taskName, expirationDate, expirationCallback);
+        }
     });
 
     //route to check out of a space
