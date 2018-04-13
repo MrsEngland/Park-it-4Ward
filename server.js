@@ -50,31 +50,42 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    console.log(username);
-    console.log(password);
-    const db = require('./db');
+// app.post('/login', function(req, res, next){ 
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     console.log(username);
+//     console.log(password);
+    
+//     const db = require('./db');
 
-    db.query('SELECT id, password FROM users WHERE username = ?', [username], function( err, results, fields) { 
-        if (err) { done(err)};
-        if (results.length === 0) { 
-          done(null, false)
-        }
+//     db.query('SELECT id, password FROM users WHERE username = ?', [username], function( err, results, fields) { 
+//         if (err) { done(err)};
+//         if (results.length === 0) { 
+//           done(null, false)
+//         }
 
-        const hash = results[0].password.toString();
+//         const hash = results[0].password.toString();
         
-        bcrypt.compare(password, hash, function(err, response) { 
-          if (response === true) { 
-            return done (null, {user_id: results[0].id});
-          }
-          else { 
-            return done(null, false)
-          }
-        })
-    })
-  }
-));
+//         bcrypt.compare(password, hash, function(err, response) { 
+//           if (response === true) { 
+//             return done (null, {user_id: results[0].id});
+//           }
+//           else { 
+//             return done(null, false)
+//           }
+//         })
+//     })
+//   }
+// ))
+//   });
+
+app.post('/login', function(req, res) {
+  passport.authenticate('local', {
+      successRedirect: '/#loginModal',
+      failureRedirect:  '/#aboutModal'
+  });
+});
+
 
 
 // Set Handlebars.
