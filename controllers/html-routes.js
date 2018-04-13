@@ -17,7 +17,7 @@ app.get("/", function(req, res) {
   // app.get("/register", function(req, res) {
   //   res.sendFile(path.join(__dirname, "register.html"));
   // });
-  
+
   //parking route loads parking.html
 
   app.get("/parking"/*, authenticationMiddleware()*/, function(req, res) {
@@ -48,7 +48,21 @@ app.get("/", function(req, res) {
     res.render('profile', {title: 'Profile'})
   }
 
+  app.get('/logout',authController.logout);
+
+
+  app.post('/login', passport.authenticate('local-signin',  { successRedirect: '/#aboutModal',
+                                                              failureRedirect: '/#loginModal'}
+                                                              ));
+         function isLoggedIn(req, res, next) {
+            if (req.isAuthenticated())
+                  return next();
+                  res.redirect('/#aboutModal');
+                                                  }
 };
+
+
+
 
 function authenticationMiddleware() { 
   return (req,res, next) => { 
@@ -56,6 +70,6 @@ function authenticationMiddleware() {
       'req.session.passport.user: $(JSON.stringify(req.session.passport)}')
       if (req.isAuthenticated()) return next();
       
-      res.redirect('/login')
+      res.redirect('/#aboutModal')
   }
 }
