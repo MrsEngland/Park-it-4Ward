@@ -106,8 +106,6 @@ module.exports = function(app) {
     //route to check out of a space
     app.put("/api/checkOutOfSpace", function(req, res) {
         db.parking_spaces.update({
-            check_in_time: 0,
-            expiration_time: 0,
             is_available: true
           }, {
             where: {
