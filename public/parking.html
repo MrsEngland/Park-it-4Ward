@@ -42,6 +42,81 @@
         </div>
     </nav>
 </header>
+<script type=text/javascript>
+
+
+    function initMap() {
+
+        var cityCenter = new google.maps.LatLng(35.228440,-80.834919);
+        var latLngA = new google.maps.LatLng(35.227927,-80.836009);
+        var latLngB = new google.maps.LatLng(35.228532,-80.834729);
+        var latLngC = new google.maps.LatLng(35.227202,-80.837042);
+        var latLngD = new google.maps.LatLng(35.227852,-80.834025);
+
+        var mapOptions = {
+            zoom: 16,
+            center: cityCenter
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: cityCenter,
+            title: "UNCC City Center Bldg",
+        });
+
+        var marker1 = new google.maps.Marker({
+            position: latLngA,
+            title: "Parking Lot A, 309 East 8th Street",
+        });
+
+        var marker2 = new google.maps.Marker({
+            position: latLngB,
+            title: "Parking Lot B, 325 East 9th Street",
+        });
+
+        var marker3 = new google.maps.Marker({
+            position: latLngC,
+            title: "Parking Lot C, 315 East 7th Street",
+        });
+
+        var marker4 = new google.maps.Marker({
+            position: latLngD,
+            title: "Parking Lot D, 418 East 9th Street",
+        });
+
+// To add the marker to the map, call setMap();
+        marker.setMap(map);
+        marker1.setMap(map);
+        marker2.setMap(map);
+        marker3.setMap(map);
+        marker4.setMap(map);
+
+        google.maps.event.addListener(marker1, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot1();
+        });
+        google.maps.event.addListener(marker2, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot2();
+        });
+        google.maps.event.addListener(marker3, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot3();
+        });
+        google.maps.event.addListener(marker4, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot4();
+        });
+
+    };
+
+
+</script>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApq-fBkuFCDJKmSz7KEPV-Tc9ROcTPYpU&libraries=places&callback=initMap" async defer></script>
+</body>
 
 
 <div class="container" id="parking">
@@ -51,112 +126,107 @@
             <p>Click a spot to park and input an estimated time. No spots available?  Park it 4Ward!</p></div>
 
 
-    <div id="map"></div>
-
-    <!--<script>-->
-        <!--function myMap() {-->
-            <!--var mapOptions = {-->
-                <!--center: new google.maps.LatLng(51.5, -0.12),-->
-                <!--zoom: 10,-->
-                <!--mapTypeId: google.maps.MapTypeId.HYBRID-->
-            <!--}-->
-            <!--var map = new google.maps.Map(document.getElementById("map"), mapOptions);-->
-        <!--}-->
-    <!--</script>-->
-
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>-->
-        <!--function createLocationTable() {-->
-
-        <!--var features = getAllLocations();-->
-        <!--var site_number = '';-->
-        <!--var sitename = '';-->
-        <!--var cameraPostion = '';-->
-        <!--var imgURL = '';-->
-        <!--var date = new Date();-->
-        <!--var content = '';-->
-
-        <!--content = '<table class="table-location"><tbody>';-->
-    <!--content += '<tr><th class="table-header">';-->
-        <!--content += '<center>Images</center></th></tr>';-->
-    <!--var tempSiteNumber = features[0].attributes.SITE_NUMBER;-->
-    <!--content += '<tr>';-->
-        <!--content += '<tr><th class="table-header">';-->
-        <!--content += '<center>' + features[0].attributes.RPUID_NAME + '</center></th></tr>';-->
-    <!--for (var i = 0; i < features.length; i++) {-->
-
-    <!--site_number = features[i].attributes.SITE_NUMBER-->
-    <!--sitename = features[i].attributes.RPUID_NAME;-->
-    <!--cameraPostion = features[i].attributes.CAMERA_POSITION;-->
-    <!--imgURL = features[i].attributes.IMAGE_URL;-->
-
-    <!--if (tempSiteNumber != site_number)-->
-    <!--{-->
-    <!--//then create a new row-->
-
-    <!--tempSiteNumber = site_number;-->
-    <!--content += '</tr>';-->
-    <!--content += '<tr>';-->
-        <!--content += '<tr><th class="table-header">';-->
-        <!--content += '<center>'+sitename+'</center></th></tr>';-->
-    <!--}-->
-    <!--//otherwise everythind goes side to side-->
-    <!--content += '<td>' + cameraPostion;-->
-        <!--content += '<div><a href =' + imgURL + ' target="_blank"><center><img src=' + imgURL +' class="imgRWIS" height="125" width="250"></center></div></td>';-->
-
-    <!--}-->
-    <!--content += '</tbody></table>';-->
-        <!--document.write(content)-->
-
-        <!--return content;-->
-        <!--}-->
-
-        <!--window.onload = createLocationTable();-->
-        <!--body-->
 
 
 
+<div id= "box">
+    <table name= "parking" table class="table table-hover" id = "parkingtable">
 
-        <!--function-->
+</div>
 
-        <!--$.ajax({-->
-            <!--type: "GET",-->
-            <!--url: "/api/getParkingSpaces",-->
-            <!--data: { spot_id: "", time_remaining: "" }-->
-        <!--})-->
-            <!--.done(function( msg ) {-->
-                <!--alert( "Data Saved: " + msg );-->
-
-        <!--// Route Path: /api/checkinToSpace.-->
-        <!--// Method: Put-->
-        <!--// Params:-->
-        <!--// lot_id-->
-        <!--// space_id-->
-
-        <!--// Route Path: /api/checkoutOfSpace-->
-        <!--// Method: Put-->
-        <!--// Params:-->
-        <!--// lot_id-->
-        <!--// space_id-->
-
-        <!--// Route Name: /api/getParkingSpaces-->
-        <!--// Method: Get-->
-        <!--// Params:-->
-        <!--// lot_id-->
-
-
-        <!--http://jsfiddle.net/amyamy86/LG5Fp/-->
-    <!--// </script>-->
 
         <script>
-            function loadLots() {
-                $.get("/api/getAvailableParkingSpaces")
+            function loadParkingLot1() {
+                $.get("api/getAvailableParkingSpaces?lot_id=1")
                         .then(function(response, body) {
-                            // do something
-                            // loop
+                            var html = "<table border='1|1'>";
+                            html+="<th>Parking Lot Number</th>";
+                            html+="<th>Space Number</th>";
+                            html+="<th>Time Left at Spot</th>";
+                            for (var i = 0; i < response.length; i++) {
+                                html+="<tr>";
+                                html+="<tr>";
+                                html+="<td>"+response[i].lot_id+"</td>";
+                                html+="<td>"+response[i].id+"</td>";
+                                html+="<td>"+response[i].expiration_time+"</td>";
+                                html+="</tr>";
+
+                            }
+                            html+="</table>";
+                            document.getElementById("parkingtable").innerHTML = html;
+
+
                         })
             }
+            function loadParkingLot2() {
+                $.get("api/getAvailableParkingSpaces?lot_id=2")
+                    .then(function(response, body) {
+                        var html = "<table border='1|1'>";
+                        html+="<th>Parking Lot Number</th>";
+                        html+="<th>Space Number</th>";
+                        html+="<th>Time Left at Spot</th>";
+                        for (var i = 0; i < response.length; i++) {
+                            html+="<tr>";
+                            html+="<tr>";
+                            html+="<td>"+response[i].lot_id+"</td>";
+                            html+="<td>"+response[i].id+"</td>";
+                            html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="</tr>";
+
+                        }
+                        html+="</table>";
+                        document.getElementById("parkingtable").innerHTML = html;
+
+
+                    })
+            }
+            function loadParkingLot3() {
+                $.get("api/getAvailableParkingSpaces?lot_id=3")
+                    .then(function(response, body) {
+                        var html = "<table border='1|1'>";
+                        html+="<th>Parking Lot Number</th>";
+                        html+="<th>Space Number</th>";
+                        html+="<th>Time Left at Spot</th>";
+                        for (var i = 0; i < response.length; i++) {
+                            html+="<tr>";
+                            html+="<tr>";
+                            html+="<td>"+response[i].lot_id+"</td>";
+                            html+="<td>"+response[i].id+"</td>";
+                            html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="</tr>";
+
+                        }
+                        html+="</table>";
+                        document.getElementById("parkingtable").innerHTML = html;
+
+
+                    })
+            }
+            function loadParkingLot4() {
+                $.get("api/getAvailableParkingSpaces?lot_id=4")
+                    .then(function(response, body) {
+                        var html = "<table border='1|1'>";
+                        html+="<th>Parking Lot Number</th>";
+                        html+="<th>Space Number</th>";
+                        html+="<th>Time Left at Spot</th>";
+                        for (var i = 0; i < response.length; i++) {
+                            html+="<tr>";
+                            html+="<tr>";
+                            html+="<td>"+response[i].lot_id+"</td>";
+                            html+="<td>"+response[i].id+"</td>";
+                            html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="</tr>";
+
+                        }
+                        html+="</table>";
+                        document.getElementById("parkingtable").innerHTML = html;
+
+
+                    })
+            }
+            // loadLots();
         </script>
-    <div class="container" id="tableData">
+    <!--<div class="container" id="tableData">-->
         <table class="table table-hover">
                 {{#each parkingspot}}
                 <div>{{question}}</div>
@@ -181,7 +251,6 @@
                 {{/each}}
 
             <div class="output"></div>
-
 
 
 
