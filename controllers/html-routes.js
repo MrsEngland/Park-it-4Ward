@@ -25,30 +25,6 @@ app.get("/", function(req, res) {
   });
 
 
-//     var pretendData = {
-//       layout: false,
-//       lot: [{
-//               lotName: "Mega Lot",
-//               parkingSpace: [{
-//                                 spaceNumber: 1,
-//                                 timeRemaining: "5 min"
-//                               },
-//                               {
-//                                 spaceNumber: 2,
-//                                 timeRemaining: "10 min"
-//                               }]
-//             },
-//             {
-//               lotName: "Super Duper Lot",
-//               parkingSpace: [{
-//                                 spaceNumber: 1,
-//                                 timeRemaining: "20 min"
-//                             }]
-//
-//             }]
-//     }
-//       res.render('parking', pretendData)
-// =======
   app.get("/register", authenticationMiddleware(), function(req, res) {
     res.sendFile(path.join(__dirname, "parking.html"));
   });

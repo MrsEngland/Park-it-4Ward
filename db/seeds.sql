@@ -17,20 +17,20 @@ INSERT INTO parking_lots (name, address, city, state, zip, latitude, longitude, 
 VALUES ("ParkingD", "418 East 9th Street", "Charlotte", "NC", "28202", 35.227852, -80.834025, 15, 8, now(), now());
 
 INSERT INTO parking_spaces (lot_id, createdAt, updatedAt, check_in_time, expiration_time, is_available)
-VALUES (1, now(), now(), now(), now(), false);
+VALUES (1, now(), now(), now(), ADDTIME(now(), '5:0:0'), false);
 
 INSERT INTO parking_spaces (lot_id, createdAt, updatedAt, check_in_time, expiration_time, is_available)
-VALUES (1, now(), now(), now(), now(), false);
+VALUES (1, now(), now(), now(), ADDTIME(now(), '1:0:0'), false);
 
 INSERT INTO parking_spaces (lot_id, createdAt, updatedAt, check_in_time, expiration_time)
-VALUES (1, now(), now(), now(), now());
+VALUES (1, now(), now(), now(), ADDTIME(now(), '0:30:0'));
 
 INSERT INTO parking_spaces (lot_id, createdAt, updatedAt, check_in_time, expiration_time)
-VALUES (1, now(), now(), now(), now());
+VALUES (1, now(), now(), now(), ADDTIME(now(), '0:30:0'));
 
-INSERT INTO users (name, email, password, createdAt, updatedAt)
+INSERT INTO users (username, email, password, createdAt, updatedAt)
 VALUES ("john", "john@gmail.com", "password", now(), now());
-INSERT INTO users (name, email, password, createdAt, updatedAt)
+INSERT INTO users (username, email, password, createdAt, updatedAt)
 VALUES ("paul", "paul@gmail.com", "12345678", now(), now());
-INSERT INTO users (name, email, password, createdAt, updatedAt)
+INSERT INTO users (username, email, password, createdAt, updatedAt)
 VALUES ("george", "george@gmail.com", "password", now(), now());
