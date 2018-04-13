@@ -143,12 +143,14 @@
                             html+="<th>Parking Lot Number</th>";
                             html+="<th>Space Number</th>";
                             html+="<th>Time Left at Spot</th>";
+                            html+="<th>Park Here!</th>";
                             for (var i = 0; i < response.length; i++) {
                                 html+="<tr>";
                                 html+="<tr>";
                                 html+="<td>"+response[i].lot_id+"</td>";
                                 html+="<td>"+response[i].id+"</td>";
                                 html+="<td>"+response[i].expiration_time+"</td>";
+                                html+="<td><button class=\"btn btn-success\">Park</button></td>";
                                 html+="</tr>";
 
                             }
@@ -165,14 +167,15 @@
                         html+="<th>Parking Lot Number</th>";
                         html+="<th>Space Number</th>";
                         html+="<th>Time Left at Spot</th>";
+                        html+="<th>Park Here!</th>";
                         for (var i = 0; i < response.length; i++) {
                             html+="<tr>";
                             html+="<tr>";
                             html+="<td>"+response[i].lot_id+"</td>";
                             html+="<td>"+response[i].id+"</td>";
                             html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="<td><button class=\"btn btn-success\">Park</button></td>";
                             html+="</tr>";
-
                         }
                         html+="</table>";
                         document.getElementById("parkingtable").innerHTML = html;
@@ -187,12 +190,14 @@
                         html+="<th>Parking Lot Number</th>";
                         html+="<th>Space Number</th>";
                         html+="<th>Time Left at Spot</th>";
+                        html+="<th>Park Here!</th>";
                         for (var i = 0; i < response.length; i++) {
                             html+="<tr>";
                             html+="<tr>";
                             html+="<td>"+response[i].lot_id+"</td>";
                             html+="<td>"+response[i].id+"</td>";
                             html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="<td><button class=\"btn btn-success\">Park</button></td>";
                             html+="</tr>";
 
                         }
@@ -209,12 +214,14 @@
                         html+="<th>Parking Lot Number</th>";
                         html+="<th>Space Number</th>";
                         html+="<th>Time Left at Spot</th>";
+                        html+="<th>Park Here!</th>";
                         for (var i = 0; i < response.length; i++) {
                             html+="<tr>";
                             html+="<tr>";
                             html+="<td>"+response[i].lot_id+"</td>";
                             html+="<td>"+response[i].id+"</td>";
                             html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="<td><button class=\"btn btn-success\">Park</button></td>";
                             html+="</tr>";
 
                         }
