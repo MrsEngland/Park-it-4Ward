@@ -1,7 +1,15 @@
 
 var authController = require('../controllers/authcontroller.js');
+var express = require("express");
+var app = module.exports = express(); 
+//some app/middleware setup, etc, including 
 
-module.exports = function(app){
+
+
+
+
+
+module.exports = function(app, passport) {
 
 app.get('/register', authController.register);
 
