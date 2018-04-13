@@ -22,4 +22,4 @@ var expiration_scheduler = {
   }
 };
 
-module.exports = update_scheduler;
+module.exports = expiration_scheduler;
