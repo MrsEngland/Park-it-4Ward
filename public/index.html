@@ -59,7 +59,7 @@
     <div class="col-sm-3 centered">
       <div class="row">
         <div class=" navBtns col-sm-6 centered">
-          <a href="/parking.html">
+          <a href="parking.html">
             <img src="assets/images/PARK(1).png" class="item animated bounceInLeft" id="parkBtn" alt="car">
           </a>
         </div>
@@ -141,16 +141,16 @@
           <h4 class="modal-title">LOG IN</h4>
         </div>
         <div class="modal-body">
-          <form>
-            USERNAME:<br>
+          <form method = "POST" action = "/login"></form>
+          USERNAME:<br>
             <input id="logInName" type="text" name="Username"><br>
             PASSWORD:<br>
             <input id="logInPWord" type="text" name="Password"><br>
             <br>
             <br>
-          </form>
-          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
+          <button id="loginConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
           </button>
+          </form>
         </div>
       </div>
     </div>
@@ -180,46 +180,58 @@
 	<footer></footer>
   </body>
 
-<script type="text/javascript">
-  $("#parkBtn").click(function(){
-  var newURL = "parking.html";
-            window.location = newURL;
-  var newUsr;
-  var confirmUser;
-});
+  <script type="text/javascript">
+    $("#parkBtn").click(function(){
+    var newURL = "parking.html";
+              window.location = newURL;
+  });
+  
+    $("#leaveBtn").click(function(){
+          $("#leaveModal").modal('show');
+  });
+  
+    $("#regBtn").click(function(){
+          $("#myModal").modal('show');
+  });
+  
+    $("#logoPic").click(function(){
+          $("#aboutModal").modal('show');
+  });
+  
+    $("#logInBtn").click(function(){
+          $("#logInModal").modal('show');
+  });
+  
+    $("#contactBtn").click(function(){
+          $("#contactModal").modal('show');
+  });
 
-  $("#leaveBtn").click(function(){
-        $("#leaveModal").modal('show');
-});
-
-  $("#regBtn").click(function(){
-        $("#myModal").modal('show');
-});
-
-  $("#logoPic").click(function(){
-        $("#aboutModal").modal('show');
-});
-
-  $("#logInBtn").click(function(){
-        $("#logInModal").modal('show');
-});
-
-  $("#contactBtn").click(function(){
-        $("#contactModal").modal('show');
-});
-
-  $('#clear-form').on('click', function() {
-    var newUsr = {
-    username: $('#form-user').val().trim(),
-    email: $('#form-email').val().trim(),
-    password: $('#form-pw').val().trim(),
-    passwordMatch: $('#form-pw-confirm').val().trim()
-    }
-                      
-    $.post('/register', newUsr).done(function(data) {
-      console.log(data);
-      })
+  $('#loginConfirm').on('click', function() { 
+    var confirmUsr = { 
+      username: $('#logInName').val().trim(),
+      password: $('#logInPWord').val().trim(),
+    };
+      $.post('/login',confirmUsr).done(function(data) { 
+        console.log(username);
+      }).catch(function(err) {
+        console.log(err);
+      });
     });
 
-</script>
-</html>
+  
+    $('#clear-form').on('click', function() {
+      var newUsr = {
+      username: $('#form-user').val().trim(),
+      email: $('#form-email').val().trim(),
+      password: $('#form-pw').val().trim(),
+      passwordMatch: $('#form-pw-confirm').val().trim()
+      }
+                        
+      $.post('/register', newUsr).done(function(data) {
+        console.log(data);
+        })
+      });
+  
+  </script>
+  </html
+  
