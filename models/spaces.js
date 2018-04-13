@@ -21,11 +21,11 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
         },
         check_in_time: { 
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         expiration_time: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         is_available: {
