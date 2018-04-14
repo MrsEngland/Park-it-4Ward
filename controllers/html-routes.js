@@ -17,18 +17,13 @@ app.get("/", function(req, res) {
   // app.get("/register", function(req, res) {
   //   res.sendFile(path.join(__dirname, "register.html"));
   // });
-  
+
   //parking route loads parking.html
 
   app.get("/parking"/*, authenticationMiddleware()*/, function(req, res) {
       res.sendFile(path.join(__dirname, "parking.html"));
   });
 
-
-  app.get("/register", authenticationMiddleware(), function(req, res) {
-    res.sendFile(path.join(__dirname, "parking.html"));
-  });
-  
   app.get("/logout"), function (req, res) { 
     req.logout();
     req.session.destroy(); 
@@ -43,19 +38,5 @@ app.get("/", function(req, res) {
   app.get("/api", function(req, res) {
     res.json();
   });
-  
-  app.get('/profile'), authenticationMiddleware(), function (req, res) { 
-    res.render('profile', {title: 'Profile'})
-  }
 
 };
-
-function authenticationMiddleware() { 
-  return (req,res, next) => { 
-    console.log (
-      'req.session.passport.user: $(JSON.stringify(req.session.passport)}')
-      if (req.isAuthenticated()) return next();
-      
-      res.redirect('/login')
-  }
-}
