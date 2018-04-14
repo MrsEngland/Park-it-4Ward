@@ -1,3 +1,4 @@
+
 var fs = require("fs");
 var express = require('express')
 var path = require("path");
@@ -19,7 +20,7 @@ var api = express.Router();
 
 var MySQLStore = require('express-mysql-session')
 var db = require("../models");
-var bcrypt = require('bcryptjs');
+var bcrypt = require('bcrypt');
 var app = express(); 
 // Generate a salt
 var salt = bcrypt.genSaltSync(10);
@@ -37,22 +38,11 @@ app.use(cookieParser())
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
 module.exports = function(app) {
-
-
   //looks like all of this is in his index.js
 
-
-  app.post('/login', passport.authenticate('local', {
-    successRedirect: '/parking',
-    failureRedirect:  'index'
-  }));
-
-  app.use(function(req, res, next) { 
-      res.locals.isAuthenticated = req.isAuthenticated(); 
-      next();
-
-  })
 
   app.use(expressValidator({
     errorFormatter: function(param, msg, value) {
@@ -70,36 +60,6 @@ module.exports = function(app) {
       };
     }
   }));
-
-
-  passport.use(new LocalStrategy(
-    function(username, password, done) {
-      console.log(username);
-      console.log(password);
-
-      const db = require('./db');
-
-      db.query('SELECT id, password FROM users WHERE username = ?', [username]), 
-        function(err, results, fields) {
-          if (err) {done(err)};
-
-          if (results.length === 0) { 
-            done(null, false);
-          } else { 
-                const hash= results[0].password.toString();
-
-                 bcrypt.compare(password, hash, function(err, response) { 
-                    if(response ===true) { 
-                       return done(null, {user_id: results[0].id});
-                     } else { 
-                        return done (null, false)
-                      }
-                 });       
-                }  
-        };
-     }
-  ));
-  
 
   app.post('/register', function(req, res, next){ 
     req.checkBody('username', 'Username field cannot be empty.').notEmpty();
@@ -144,7 +104,7 @@ db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [user
           const user_id = results[0];
 
           req.login(results[0], function (err){ 
-                  res.sendFile(path.join(__dirname, "parking.html"))
+            console.log(password, username)
 
           })
       })

@@ -34,9 +34,9 @@
   <nav class="navbar navbar-default navbar-fixed">
     <div class="container-fluid">
       <div class="navbar">
-        <a class="btn primary item animated bounceInUp" id="regBtn" href="#mymodal" role="button" aria-expanded="false">REGISTER</a></button>
-        <a class="btn primary item animated bounceInUp" id="logInBtn" href="#logInModal" role="button" aria-expanded="false">LOG-IN</a></button>
-        <a class="btn primary item animated bounceInUp" id="contactBtn" href="#contactModal" role="button" aria-expanded="false">CONTACT US</a></button>
+        <a class="btn primary item animated fadeInUp" id="regBtn" href="#mymodal" role="button" aria-expanded="false">REGISTER</a></button>
+        <a class="btn primary item animated fadeInUp" id="logInBtn" href="#logInModal" role="button" aria-expanded="false">LOG-IN</a></button>
+        <a class="btn primary item animated fadeInUp" id="contactBtn" href="#contactModal" role="button" aria-expanded="false">CONTACT US</a></button>
       </div>
     </div>
   </nav>
@@ -48,7 +48,7 @@
       <div class="col-sm-4 centered">
         <div id="pic">
           <a href="#aboutModal">
-          <img id="logoPic" class="item animated zoomIn centered" src="assets/images/logo.png" alt="car">
+          <img id="logoPic" class="item animated zoomInDown" src="assets/images/logo.png" alt="car">
           </a>
          </div>
       </div>
@@ -59,7 +59,7 @@
     <div class="col-sm-3 centered">
       <div class="row">
         <div class=" navBtns col-sm-6 centered">
-          <a href="../views/parking.html">
+          <a href="parking.html">
             <img src="assets/images/PARK(1).png" class="item animated bounceInLeft" id="parkBtn" alt="car">
           </a>
         </div>
@@ -82,7 +82,7 @@
         <div class="modal-body">
           <div id="auth-container">
           <br>
-            <form method = "POST" action = "/register"></form>
+            <form method = "POST" action = "/register" id = "register" action = "register"> </form>></form>
               EMAIL ADDRESS:<br>
               <input id='form-email' type="text" name="email"><br>
               USERNAME:<br>
@@ -141,16 +141,16 @@
           <h4 class="modal-title">LOG IN</h4>
         </div>
         <div class="modal-body">
-          <form>
-            USERNAME:<br>
-            <input type="text" name="Username"><br>
+          <form method = "POST" action = "/login" id = "login" action = "login">
+          USERNAME:<br>
+            <input id="logInName" type="text" name="Username"><br>
             PASSWORD:<br>
-            <input type="text" name="Password"><br>
+            <input id="logInPWord" type="text" name="Password"><br>
             <br>
             <br>
-          </form>
-          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
+          <button id="loginConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
           </button>
+          </form>
         </div>
       </div>
     </div>
@@ -163,9 +163,15 @@
           <h4 class="modal-title">CONTACT PARK IT 4WARD</h4>
         </div>
         <div class="modal-body">
-          <p>Contact info will go here.</p>
-          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE
-          </button>
+          <p>EMAIL:  admin@PI4W.com</p>
+          <br>
+          <p>PHONE:  704.555.5555</p>
+          <br>
+          <p>ADDRESS:  320 E 9TH ST, CHARLOTTE, NC 28202</p>
+          <br>
+          <p>HOURS:  8am-10pm</p>
+          <br>
+          <button id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE</button>
         </div>
       </div>
     </div>
@@ -174,44 +180,58 @@
 	<footer></footer>
   </body>
 
-<script type="text/javascript">
-  $("#parkBtn").click(function(){
-  var newURL = "parking.html";
-            window.location = newURL;
-});
+  <script type="text/javascript">
+    $("#parkBtn").click(function(){
+    var newURL = "parking.html";
+              window.location = newURL;
+  });
+  
+    $("#leaveBtn").click(function(){
+          $("#leaveModal").modal('show');
+  });
+  
+    $("#regBtn").click(function(){
+          $("#myModal").modal('show');
+  });
+  
+    $("#logoPic").click(function(){
+          $("#aboutModal").modal('show');
+  });
+  
+    $("#logInBtn").click(function(){
+          $("#logInModal").modal('show');
+  });
+  
+    $("#contactBtn").click(function(){
+          $("#contactModal").modal('show');
+  });
 
-  $("#leaveBtn").click(function(){
-        $("#leaveModal").modal('show');
-});
-
-  $("#regBtn").click(function(){
-        $("#myModal").modal('show');
-});
-
-  $("#logoPic").click(function(){
-        $("#aboutModal").modal('show');
-});
-
-  $("#logInBtn").click(function(){
-        $("#logInModal").modal('show');
-});
-
-  $("#contactBtn").click(function(){
-        $("#contactModal").modal('show');
-});
-
-  $('#clear-form').on('click', function() {
-    var newUsr = {
-    username: $('#form-user').val().trim(),
-    email: $('#form-email').val().trim(),
-    password: $('#form-pw').val().trim(),
-    passwordMatch: $('#form-pw-confirm').val().trim()
-    }
-                      
-    $.post('/register', newUsr).done(function(data) {
-      console.log(data);
-      })
+  $('#loginConfirm').on('click', function() { 
+    var confirmUsr = { 
+      username: $('#logInName').val().trim(),
+      password: $('#logInPWord').val().trim(),
+    };
+      $.post('/login',confirmUsr).done(function(data) { 
+        console.log(username);
+      }).catch(function(err) {
+        console.log(err);
+      });
     });
 
-</script>
-</html>
+  
+    $('#clear-form').on('click', function() {
+      var newUsr = {
+      username: $('#form-user').val().trim(),
+      email: $('#form-email').val().trim(),
+      password: $('#form-pw').val().trim(),
+      passwordMatch: $('#form-pw-confirm').val().trim()
+      }
+                        
+      $.post('/register', newUsr).done(function(data) {
+        console.log(data);
+        })
+      });
+  
+  </script>
+  </html
+  
