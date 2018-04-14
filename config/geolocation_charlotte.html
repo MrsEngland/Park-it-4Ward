@@ -1,0 +1,94 @@
+<!-- my api key   AIzaSyApq-fBkuFCDJKmSz7KEPV-Tc9ROcTPYpU -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type=text/javascript>
+
+
+function initMap() {
+  
+var cityCenter = new google.maps.LatLng(35.228440,-80.834919);
+var latLngA = new google.maps.LatLng(35.227927,-80.836009);
+var latLngB = new google.maps.LatLng(35.228532,-80.834729);
+var latLngC = new google.maps.LatLng(35.227202,-80.837042);
+var latLngD = new google.maps.LatLng(35.227852,-80.834025);
+
+var mapOptions = {
+  zoom: 16,
+  center: cityCenter
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+var marker = new google.maps.Marker({
+    position: cityCenter,
+    title: "UNCC City Center Bldg",
+  });
+
+var marker1 = new google.maps.Marker({
+    position: latLngA,
+    title: "Parking Lot A, 309 East 8th Street",
+   });
+
+var marker2 = new google.maps.Marker({
+    position: latLngB,
+    title: "Parking Lot B, 325 East 9th Street",
+  });
+
+var marker3 = new google.maps.Marker({
+    position: latLngC,
+    title: "Parking Lot C, 315 East 7th Street",
+  });
+
+var marker4 = new google.maps.Marker({
+    position: latLngD,
+    title: "Parking Lot D, 418 East 9th Street",
+  });
+
+// To add the marker to the map, call setMap();
+marker.setMap(map);
+marker1.setMap(map);
+marker2.setMap(map);
+marker3.setMap(map);
+marker4.setMap(map);
+
+  google.maps.event.addListener(marker1, 'click', function() {
+      //  show table with this lot's data
+  });
+  google.maps.event.addListener(marker2, 'click', function() {
+      //  show table with this lot's data
+  });
+  google.maps.event.addListener(marker3, 'click', function() {
+      //  show table with this lot's data
+  });
+  google.maps.event.addListener(marker4, 'click', function() {
+      //  show table with this lot's data
+  });
+
+};
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApq-fBkuFCDJKmSz7KEPV-Tc9ROcTPYpU&libraries=places&callback=initMap" async defer></script>
+  </body>
+</html>
+ 

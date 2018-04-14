@@ -1,4 +1,3 @@
-
 var fs = require("fs");
 var express = require('express')
 var path = require("path");
@@ -20,8 +19,12 @@ var api = express.Router();
 
 var MySQLStore = require('express-mysql-session')
 var db = require("../models");
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var app = express(); 
+// Generate a salt
+var salt = bcrypt.genSaltSync(10);
+// Hash the password with the salt
+var hash = bcrypt.hashSync("my password", salt);
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -31,19 +34,8 @@ app.use(expressValidator());
 app.use(cookieParser())
 
 
-app.use(expressValidator())
-
-// var sessionStore = newMySQLStore(options);
-
-// app.use(session({
-//   secret: 'cat',
-//   resave: false, 
-//   store: sessionStore, 
-//   saveUninitialized: false,
-// }));
-
 app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.session());
 
 module.exports = function(app) {
 
@@ -62,6 +54,22 @@ module.exports = function(app) {
 
   })
 
+  app.use(expressValidator({
+    errorFormatter: function(param, msg, value) {
+        var namespace = param.split('.')
+        , root    = namespace.shift()
+        , formParam = root;
+  
+      while(namespace.length) {
+        formParam += '[' + namespace.shift() + ']';
+      }
+      return {
+        param : formParam,
+        msg   : msg,
+        value : value
+      };
+    }
+  }));
 
 
   passport.use(new LocalStrategy(
@@ -104,25 +112,27 @@ module.exports = function(app) {
     req.checkBody('passwordMatch', 'Passwords do not match, please try again.').equals(req.body.password);
     req.checkBody('username', 'Username can only contain letters, numbers, or underscores.').matches(/^[A-Za-z0-9_-]+$/, 'i');
   
-    const errors = req.valdiationErrors();
-  
+    var errors = req.validationErrors();
     if (errors) {
-      console.log('errors: ${JSON.stringify(error)}')
+      res.send(errors);
+      return;
+    } else {
+ 
+  
+  res.json({ message: 'Success' });
 
-      res.render('register', 
-      {title: 'Registration Error',
-      errors: errors});
-  } else {
 
-  const email = req.body.email
-  const username = req.body.username
-  const password = req.body.password
+  const email = req.body.email;
+  const username = req.body.username;
+  const password = req.body.password;
 
  
 
-const db = require('./config/connection.js');
+const db = require('../config/connection.js');
 
-bcrypt.hash(password, saltRounds, function(err, hash) {
+
+
+bcrypt.hash(password, 4, function(err, hash) {
 db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function (  
   error, results, fields) { 
       if(error) throw error;
@@ -134,7 +144,7 @@ db.query('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [user
           const user_id = results[0];
 
           req.login(results[0], function (err){ 
-                  res.redirect('/');
+                  res.sendFile(path.join(__dirname, "parking.html"))
 
           })
       })
