@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial scale=1.0">
     <title>Available Spots</title>
 
+
+
     <!-- Bootstrap CSS-->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></script>-->
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
@@ -22,13 +22,14 @@
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 
     <!--<link rel="stylesheet" type="text/css" href="assets/css/animate.css">-->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <script type="text/javascript" src=""></script>
+
 </head>
 <body>
 <header>
@@ -126,11 +127,9 @@
             <h4>Click a spot below to claim it as yours.  Next time Park it 4Ward!</h4></div>
 
 
-
-
-
 <div id= "box">
     <table name= "parking" table class="table table-hover" id = "parkingtable">
+        <tr class= "tablerow">
 
 </div>
 
@@ -145,20 +144,28 @@
                             html+="<th>Time Left at Spot</th>";
                             html+="<th>Park Here!</th>";
                             for (var i = 0; i < response.length; i++) {
-                                html+="<tr>";
-                                html+="<tr>";
+                                html+="<tr class='table'>";
+                               // html+="<tr class='table'>";
                                 html+="<td>"+response[i].lot_id+"</td>";
                                 html+="<td>"+response[i].id+"</td>";
                                 html+="<td>"+response[i].expiration_time+"</td>";
-                                html+="<td><button class=\"btn btn-success\">Park</button></td>";
+                                html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
                                 html+="</tr>";
 
                             }
                             html+="</table>";
                             document.getElementById("parkingtable").innerHTML = html;
+                           
+                            $(".parkButton").click(function() {
+                                $.ajax({
+                                    type: 'PUT',
+                                    dataType: 'json',
+                                    url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                                });
+                            })
 
 
-                        })
+                        });
             }
             function loadParkingLot2() {
                 $.get("api/getAvailableParkingSpaces?lot_id=2")
@@ -174,12 +181,18 @@
                             html+="<td>"+response[i].lot_id+"</td>";
                             html+="<td>"+response[i].id+"</td>";
                             html+="<td>"+response[i].expiration_time+"</td>";
-                            html+="<td><button class=\"btn btn-success\">Park</button></td>";
+                            html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
                             html+="</tr>";
                         }
                         html+="</table>";
                         document.getElementById("parkingtable").innerHTML = html;
-
+                        $(".parkButton").click(function() {
+                            $.ajax({
+                                type: 'PUT',
+                                dataType: 'json',
+                                url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                            });
+                        })
 
                     })
             }
@@ -197,12 +210,20 @@
                             html+="<td>"+response[i].lot_id+"</td>";
                             html+="<td>"+response[i].id+"</td>";
                             html+="<td>"+response[i].expiration_time+"</td>";
-                            html+="<td><button class=\"btn btn-success\">Park</button></td>";
+                            html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
                             html+="</tr>";
 
                         }
                         html+="</table>";
                         document.getElementById("parkingtable").innerHTML = html;
+                        $(".parkButton").click(function() {
+                            $.ajax({
+                                type: 'PUT',
+                                dataType: 'json',
+                                url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                            });
+                        })
+
 
 
                     })
@@ -216,21 +237,31 @@
                         html+="<th>Time Left at Spot</th>";
                         html+="<th>Park Here!</th>";
                         for (var i = 0; i < response.length; i++) {
-                            html+="<tr>";
+                            // html+="<tr>";
                             html+="<tr>";
                             html+="<td>"+response[i].lot_id+"</td>";
                             html+="<td>"+response[i].id+"</td>";
                             html+="<td>"+response[i].expiration_time+"</td>";
-                            html+="<td><button class=\"btn btn-success\">Park</button></td>";
+                            html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
                             html+="</tr>";
 
                         }
                         html+="</table>";
                         document.getElementById("parkingtable").innerHTML = html;
+                        $(".parkButton").click(function() {
+                            $.ajax({
+                                type: 'PUT',
+                                dataType: 'json',
+                                url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                            });
+                        })
 
 
                     })
             }
+
+
+
         </script>
     </div>
 
