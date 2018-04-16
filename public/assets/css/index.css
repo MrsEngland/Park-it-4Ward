@@ -1,62 +1,86 @@
+body {
+    background-color: #f9faff;
+}
 
-#carPic {
-	display: block;
+.navbar {
+    background-color: #67605c;
+    padding: 5px, 0px, 0px, 0px;
+}
+
+.centered {
     margin-left: auto;
     margin-right: auto;
-    padding: 5px;
-    transition: transform .2s; /* Animation */
-    width: 400px;
-    height: 400px;
-    margin: 0 auto;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-delay: 1s;
+}
+
+.navBtns {
+    margin: 0;
+    padding: 2px;
+}
+
+#logoPic {
+	display: block;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    -webkit-animation-duration: 1s; /* Amimation*/
+    -webkit-animation-delay: 0s; /* Amimation*/
 }
 
 #parkBtn {
-	padding: 5px;
-    transition: transform .2s; /* Animation */
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    -webkit-animation-delay: 4s;
+    max-width: 100%;
+    margin: 0, 0;
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 #leaveBtn {
-	padding: 5px;
-    transition: transform .2s; /* Animation */
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    -webkit-animation-delay: 5s;
+    max-width: 100%;
+    margin: 0, 0;
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
 #regBtn {
-    transition: transform .2s; /* Animation */
-    width: 145px;
-    height: 45px;
-    margin: 0 auto;
-    font-size: 20px;
-    -webkit-animation-delay: 6s;
+    border-radius: 25px;
+    font-size: 18px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: white;
+    -webkit-animation-delay: 2s; /* Amimation*/
 }
 
-#parkBtn:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-#leaveBtn:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-#regBtn:hover {
-    transform: scale(1.10); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-#carPic:hover {
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+#logInBtn {
+    border-radius: 25px;
+    font-size: 18px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: white;
+    -webkit-animation-delay: 2s; /* Amimation*/
 }
 
-#myModal {
-    margin-top: 50px; 
+#contactBtn {
+    border-radius: 25px;
+    font-size: 18px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: white;
+    -webkit-animation-delay: 2s; /* Amimation*/
 }
 
-#aboutModal {
-    margin-top: 50px; 
+#logoPic:hover {
+    transform: scale(1.2); /* 120% zoom */
 }
 
+.modal {
+    border-radius: 50px;
+    font-size: 13px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+}
+
+.modal-body {
+    background-color: #f9faff;
+}
+
+.modal-header {
+    background-color: #67605c;
+    color: white;
+}
