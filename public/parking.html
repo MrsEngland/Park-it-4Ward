@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>Available Spots</title>
+
+
+
+    <!-- Bootstrap CSS-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/parking.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/animatedCSS.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/animate.css">-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <script type="text/javascript" src=""></script>
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar">
+                <a class="btn primary " id="regBtn" href="#mymodal" role="button" aria-expanded="false">REGISTER</a></button>
+                <a class="btn primary" id="logInBtn" href="#logInModal" role="button" aria-expanded="false">LOG-IN</a></button>
+                <a class="btn primary" id="contactBtn" href="#contactModal" role="button" aria-expanded="false">CONTACT US</a></button>
+            </div>
+        </div>
+    </nav>
+</header>
+<script type=text/javascript>
+
+
+    function initMap() {
+
+        var cityCenter = new google.maps.LatLng(35.228440,-80.834919);
+        var latLngA = new google.maps.LatLng(35.227927,-80.836009);
+        var latLngB = new google.maps.LatLng(35.228532,-80.834729);
+        var latLngC = new google.maps.LatLng(35.227202,-80.837042);
+        var latLngD = new google.maps.LatLng(35.227852,-80.834025);
+
+        var mapOptions = {
+            zoom: 16,
+            center: cityCenter
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: cityCenter,
+            title: "UNCC City Center Bldg",
+        });
+
+        var marker1 = new google.maps.Marker({
+            position: latLngA,
+            title: "Parking Lot 1, 309 East 8th Street",
+        });
+
+        var marker2 = new google.maps.Marker({
+            position: latLngB,
+            title: "Parking Lot 2, 325 East 9th Street",
+        });
+
+        var marker3 = new google.maps.Marker({
+            position: latLngC,
+            title: "Parking Lot 3, 315 East 7th Street",
+        });
+
+        var marker4 = new google.maps.Marker({
+            position: latLngD,
+            title: "Parking Lot 4, 418 East 9th Street",
+        });
+
+// To add the marker to the map, call setMap();
+        marker.setMap(map);
+        marker1.setMap(map);
+        marker2.setMap(map);
+        marker3.setMap(map);
+        marker4.setMap(map);
+
+        google.maps.event.addListener(marker1, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot1();
+        });
+        google.maps.event.addListener(marker2, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot2();
+        });
+        google.maps.event.addListener(marker3, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot3();
+        });
+        google.maps.event.addListener(marker4, 'click', function() {
+            //  show table with this lot's data
+            loadParkingLot4();
+        });
+
+    };
+
+
+</script>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApq-fBkuFCDJKmSz7KEPV-Tc9ROcTPYpU&libraries=places&callback=initMap" async defer></script>
+</body>
+
+
+<div class="container" id="parking">
+    <div class = "panel panel-default">
+        <div class = "panel-body">
+            <h3> Choose a parking lot above to see all available parking spots.</h3><hr>
+            <h4>Click a spot below to claim it as yours.  Next time Park it 4Ward!</h4></div>
+
+
+<div id= "box">
+    <table name= "parking" table class="table table-hover" id = "parkingtable">
+        <tr class= "tablerow">
+
+</div>
+
+
+        <script>
+            function loadParkingLot1() {
+                $.get("api/getAvailableParkingSpaces?lot_id=1")
+                        .then(function(response, body) {
+                            var html = "<table border='1|1'>";
+                            html+="<th>Parking Lot Number</th>";
+                            html+="<th>Space Number</th>";
+                            html+="<th>Time Left at Spot</th>";
+                            html+="<th>Park Here!</th>";
+                            for (var i = 0; i < response.length; i++) {
+                                html+="<tr class='table'>";
+                               // html+="<tr class='table'>";
+                                html+="<td>"+response[i].lot_id+"</td>";
+                                html+="<td>"+response[i].id+"</td>";
+                                html+="<td>"+response[i].expiration_time+"</td>";
+                                html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
+                                html+="</tr>";
+
+                            }
+                            html+="</table>";
+                            document.getElementById("parkingtable").innerHTML = html;
+                           
+                            $(".parkButton").click(function() {
+                                $.ajax({
+                                    type: 'PUT',
+                                    dataType: 'json',
+                                    url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                                });
+                            })
+
+
+                        });
+            }
+            function loadParkingLot2() {
+                $.get("api/getAvailableParkingSpaces?lot_id=2")
+                    .then(function(response, body) {
+                        var html = "<table border='1|1'>";
+                        html+="<th>Parking Lot Number</th>";
+                        html+="<th>Space Number</th>";
+                        html+="<th>Time Left at Spot</th>";
+                        html+="<th>Park Here!</th>";
+                        for (var i = 0; i < response.length; i++) {
+                            html+="<tr>";
+                            html+="<tr>";
+                            html+="<td>"+response[i].lot_id+"</td>";
+                            html+="<td>"+response[i].id+"</td>";
+                            html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
+                            html+="</tr>";
+                        }
+                        html+="</table>";
+                        document.getElementById("parkingtable").innerHTML = html;
+                        $(".parkButton").click(function() {
+                            $.ajax({
+                                type: 'PUT',
+                                dataType: 'json',
+                                url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                            });
+                        })
+
+                    })
+            }
+            function loadParkingLot3() {
+                $.get("api/getAvailableParkingSpaces?lot_id=3")
+                    .then(function(response, body) {
+                        var html = "<table border='1|1'>";
+                        html+="<th>Parking Lot Number</th>";
+                        html+="<th>Space Number</th>";
+                        html+="<th>Time Left at Spot</th>";
+                        html+="<th>Park Here!</th>";
+                        for (var i = 0; i < response.length; i++) {
+                            html+="<tr>";
+                            html+="<tr>";
+                            html+="<td>"+response[i].lot_id+"</td>";
+                            html+="<td>"+response[i].id+"</td>";
+                            html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
+                            html+="</tr>";
+
+                        }
+                        html+="</table>";
+                        document.getElementById("parkingtable").innerHTML = html;
+                        $(".parkButton").click(function() {
+                            $.ajax({
+                                type: 'PUT',
+                                dataType: 'json',
+                                url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                            });
+                        })
+
+
+
+                    })
+            }
+            function loadParkingLot4() {
+                $.get("api/getAvailableParkingSpaces?lot_id=4")
+                    .then(function(response, body) {
+                        var html = "<table border='1|1'>";
+                        html+="<th>Parking Lot Number</th>";
+                        html+="<th>Space Number</th>";
+                        html+="<th>Time Left at Spot</th>";
+                        html+="<th>Park Here!</th>";
+                        for (var i = 0; i < response.length; i++) {
+                            // html+="<tr>";
+                            html+="<tr>";
+                            html+="<td>"+response[i].lot_id+"</td>";
+                            html+="<td>"+response[i].id+"</td>";
+                            html+="<td>"+response[i].expiration_time+"</td>";
+                            html+="<td><input id ='submit1' class = 'parkButton' type = 'button' value='Park' data_space_id='" + response[i].id + "' data_lot_id='" + response[i].lot_id +"'></td>";
+                            html+="</tr>";
+
+                        }
+                        html+="</table>";
+                        document.getElementById("parkingtable").innerHTML = html;
+                        $(".parkButton").click(function() {
+                            $.ajax({
+                                type: 'PUT',
+                                dataType: 'json',
+                                url: "api/checkInToSpace?space_id=" + $(this).attr('data_space_id') + "&lot_id=" + $(this).attr('data_lot_id'), // A valid URL
+                            });
+                        })
+
+
+                    })
+            }
+
+
+
+        </script>
+    </div>
+
+</div>
+
+
+</script>
+</html>
+

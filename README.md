@@ -1,5 +1,6 @@
 # Park-it-4Ward
 
+
 Setup/Login - Asks for users name and email address and possibly create a nickname for the user (if we meet our gamify stretch goal)
 
 ARRIVAL

@@ -17,7 +17,12 @@
     
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+=======
+    <link rel="stylesheet" type="text/css" href="assets/css/animatedCSS.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
     <!-- Latest compiled and minified Bootstrap Javascript-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -29,17 +34,38 @@
 
 <body>
 
+<header>
+  <nav class="navbar navbar-default navbar-fixed">
+    <div class="container-fluid">
+      <div class="navbar">
+        <a class="btn primary item animated fadeInUp" id="regBtn" href="#mymodal" role="button" aria-expanded="false">REGISTER</a></button>
+        <a class="btn primary item animated fadeInUp" id="logInBtn" href="#logInModal" role="button" aria-expanded="false">LOG-IN</a></button>
+        <a class="btn primary item animated fadeInUp" id="contactBtn" href="#contactModal" role="button" aria-expanded="false">CONTACT US</a></button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container" id="mainContainer">
   <div class="container" id="logo">
     <div class="row">
       <div class="col-sm-4 centered">
+<<<<<<< HEAD
         <div id="pic"> -->
           <a href="#aboutModal">
           <img id="logoPic" class="item animated zoomIn centered" src="assets/images/logo.png" alt="car">
+=======
+        <div id="pic">
+          <a href="#aboutModal">
+          <img id="logoPic" class="item animated zoomInDown" src="assets/images/logo.png" alt="car">
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
           </a>
          </div>
       </div>
     </div>
+    <br>
 
+<<<<<<< HEAD
       <div class="row">          
         <div id="navBtns" class="col-sm-4 centered">
           <div class="row button-nav">
@@ -59,41 +85,60 @@
               </a>
             </div>
           </div>
+=======
+  <div class="row">          
+    <div class="col-sm-3 centered">
+      <div class="row">
+        <div class=" navBtns col-sm-6 centered">
+          <a href="parking.html">
+            <img src="assets/images/PARK(1).png" class="item animated bounceInLeft" id="parkBtn" alt="car">
+          </a>
+        </div>
+        <div class="navBtns col-sm-6 centered">
+          <a href="#leaveModal">
+            <img src="assets/images/LEAVE(2).png" class="item animated bounceInRight" id="leaveBtn" alt="car">
+          </a>
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
+        </div>
+      </div>
+    </div>
+  </div>
+<<<<<<< HEAD
+
+  <div class="modal" id="myModal" role="dialog">
+=======
+  <br>
+    
+  <div class="modal item animated flipInX" id="myModal" role="dialog">
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Register with Park It 4ward</h4>
+        </div>
+        <div class="modal-body">
+          <div id="auth-container">
+          <br>
+            <form method = "POST" action = "/register" id = "register" action = "register"> </form>></form>
+              EMAIL ADDRESS:<br>
+              <input id='form-email' type="text" name="email"><br>
+              USERNAME:<br>
+              <input id='form-user' type="text" name="Username"><br>
+              PASSWORD:<br>
+              <input id='form-pw' type="text" name="Password"><br>
+              CONFIRM PASSWORD:<br>
+              <input id='form-pw-confirm' type="text" name="Payment Information">
+              <br>
+              <br>
+              <button id="clear-form" class="btn btn-default centered" type="submit" value="Submit" data-dismiss="modal">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Register with Park It 4ward</h4>
-            </div>
-            <div class="modal-body">
-                <div id="auth-container">Sign up information form will go here in this modal.
-                  <br>
-                  <form>
-                    Email address:<br>
-                    <input type="text" name="email"><br>
-                    Username:<br>
-                    <input type="text" name="Username"><br>
-                    Payment Information:<br>
-                    <input type="text" name="Payment Information">
-                    <br>
-                    <br>
-                    <input type="submit" value="Submit">
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
+<<<<<<< HEAD
 <div class="modal" id="aboutModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -110,8 +155,26 @@
                 <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">Close
                 </button>
             </div>
+=======
+  <div class="modal item animated flipInX" id="aboutModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">ABOUT PARK IT 4WARD</h4>
         </div>
+        <div class="modal-body">
+          <div id="about"><br><p>Park It 4Ward is a commmunity driven, shared parking project.  We aim to be the digital version of the traditional parking meter, by allowing our users to share the cost of a parking spot if you don't need it for the full paid time.  If you are looking for a spot click on the park button and see if any of our users have shared a vacant spot.  If no spots are available, please Park It 4Ward so that another user can take advantage of your generosity, just as you will benefit from someone's in the future!  Once you leave please click the leave button to let others know the spot is available.</p>
+          <p>*Please note all information is only as accurate as the user who inputs it, Park It 4Ward assumes no liability for fees incurred from use of inaccurate information.</p>
+          <p>Thanks for visiting!</p>
+          <br>
+          <button id="clear-form" type="button" class="btn btn-default" data-dismiss="modal" value="clear">CLOSE
+          </button>
+          </div>
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
+        </div>
+      </div>
     </div>
+<<<<<<< HEAD
 </div>
 
 <div class="modal" id="leaveModal" role="dialog">
@@ -154,3 +217,127 @@
 
 </script>
 </html>
+=======
+  </div>
+
+  <div class="modal item animated flipInX" id="leaveModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Thank you for Parking It 4ward!  Please click "Confirm" below to confirm you are leaving.</h4>
+        </div>
+        <div class="modal-body">
+          <button id=id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CONFIRM
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal item animated flipInX" id="logInModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">LOG IN</h4>
+        </div>
+        <div class="modal-body">
+          <form method = "POST" action = "/login" id = "login" action = "login">
+          USERNAME:<br>
+            <input id="logInName" type="text" name="Username"><br>
+            PASSWORD:<br>
+            <input id="logInPWord" type="text" name="Password"><br>
+            <br>
+            <br>
+          <button id="loginConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">LOG IN
+          </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal item animated flipInX" id="contactModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">CONTACT PARK IT 4WARD</h4>
+        </div>
+        <div class="modal-body">
+          <p>EMAIL:  admin@PI4W.com</p>
+          <br>
+          <p>PHONE:  704.555.5555</p>
+          <br>
+          <p>ADDRESS:  320 E 9TH ST, CHARLOTTE, NC 28202</p>
+          <br>
+          <p>HOURS:  8am-10pm</p>
+          <br>
+          <button id="leaveConfirm" type="button" class="btn btn-default centered" data-dismiss="modal" value="clear">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<footer></footer>
+  </body>
+
+  <script type="text/javascript">
+    $("#parkBtn").click(function(){
+    var newURL = "parking.html";
+              window.location = newURL;
+  });
+  
+    $("#leaveBtn").click(function(){
+          $("#leaveModal").modal('show');
+  });
+  
+    $("#regBtn").click(function(){
+          $("#myModal").modal('show');
+  });
+  
+    $("#logoPic").click(function(){
+          $("#aboutModal").modal('show');
+  });
+  
+    $("#logInBtn").click(function(){
+          $("#logInModal").modal('show');
+  });
+  
+    $("#contactBtn").click(function(){
+          $("#contactModal").modal('show');
+  });
+
+  $('#loginConfirm').on('click', function() { 
+    var confirmUsr = { 
+      username: $('#logInName').val().trim(),
+      password: $('#logInPWord').val().trim(),
+    };
+      $.post('/login',confirmUsr).done(function(data) { 
+        console.log(username);
+      }).catch(function(err) {
+        console.log(err);
+      });
+    });
+
+  // $("#leaveConfirm").on("click", function() {
+  //   var parkingSpot = {
+      
+  //   }
+  // })
+  
+    $('#clear-form').on('click', function() {
+      var newUsr = {
+      username: $('#form-user').val().trim(),
+      email: $('#form-email').val().trim(),
+      password: $('#form-pw').val().trim(),
+      passwordMatch: $('#form-pw-confirm').val().trim()
+      }
+                        
+      $.post('/register', newUsr).done(function(data) {
+        console.log(data);
+        })
+      });
+  
+  </script>
+  </html
+  
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54

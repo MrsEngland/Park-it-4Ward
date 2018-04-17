@@ -1,20 +1,45 @@
 body {
+<<<<<<< HEAD
     background-color: #fbf6ee;
 }
 
+=======
+    background-color: #f9faff;
+}
+
+.navbar {
+    background-color: #67605c;
+    padding: 5px, 0px, 0px, 0px;
+}
+
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
 .centered {
     margin-left: auto;
     margin-right: auto;
 }
 
+<<<<<<< HEAD
+=======
+.navBtns {
+    margin: 0;
+    padding: 2px;
+}
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
 
 #logoPic {
 	display: block;
     border-radius: 30px;
+<<<<<<< HEAD
     transition: transform .2s; /* Animation */
     max-width: 100%;
     -webkit-animation-duration: 3s;
     -webkit-animation-delay: 1s;
+=======
+    margin-bottom: 10px;
+    max-width: 100%;
+    -webkit-animation-duration: 1s; /* Amimation*/
+    -webkit-animation-delay: 0s; /* Amimation*/
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
 }
 
 .button-nav {
@@ -22,6 +47,7 @@ body {
 }
 
 #parkBtn {
+<<<<<<< HEAD
 	padding: 5px;
     transition: transform .2s; /* Animation */
     max-width: 100%;
@@ -45,30 +71,77 @@ body {
     margin: 0 auto;
     font-size: 20px;
     -webkit-animation-delay: 6s;
+=======
+    max-width: 100%;
+    margin: 0, 0;
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
 
-#parkBtn:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+#leaveBtn {
+    max-width: 100%;
+    margin: 0, 0;
+    -webkit-animation-delay: 1s; /* Amimation*/
 }
-#leaveBtn:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+#regBtn {
+    border-radius: 25px;
+    font-size: 18px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: white;
+    -webkit-animation-delay: 2s; /* Amimation*/
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
 }
+
+#logInBtn {
+    border-radius: 25px;
+    font-size: 18px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: white;
+    -webkit-animation-delay: 2s; /* Amimation*/
+}
+<<<<<<< HEAD
 #regBtn:hover {
     transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 #logoPic:hover {
     transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+=======
+
+#contactBtn {
+    border-radius: 25px;
+    font-size: 18px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+    color: white;
+    -webkit-animation-delay: 2s; /* Amimation*/
 }
 
-#myModal {
-    margin-top: 50px; 
+#logoPic:hover {
+    transform: scale(1.2); /* 120% zoom */
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54
 }
 
-#aboutModal {
-    margin-top: 50px; 
+.modal {
+    border-radius: 50px;
+    font-size: 13px;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
 }
 
+.modal-body {
+    background-color: #f9faff;
+}
+
+<<<<<<< HEAD
 .modal {
     border-radius: 30px;
     font-size: 13px;
 }
+=======
+.modal-header {
+    background-color: #67605c;
+    color: white;
+}
+>>>>>>> 8ef48e529bcd0d14bdab898ecffa66cd3fa7cc54

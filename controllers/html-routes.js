@@ -9,27 +9,34 @@ app.get("/", function(req, res) {
   });
   
   //about route loads about.html
-  app.get("/about", function(req, res) {
-    res.sendFile(path.join(__dirname, "about.html"));
-  });
+  // app.get("/about", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "about.html"));
+  // });
   
   //register route loads register.html
-  app.get("/register", function(req, res) {
-    res.sendFile(path.join(__dirname, "register.html"));
-  });
-  
+  // app.get("/register", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "register.html"));
+  // });
+
   //parking route loads parking.html
-  app.get("/parking", function(req, res) {
-    res.sendFile(path.join(__dirname, "parking.html"));
+
+  app.get("/parking"/*, authenticationMiddleware()*/, function(req, res) {
+      res.sendFile(path.join(__dirname, "parking.html"));
   });
+
+  app.get("/logout"), function (req, res) { 
+    req.logout();
+    req.session.destroy(); 
+    res.sendFile(path.join(__dirname, "index.html"))
+  }
   
   //leaving route loads leaving.html
-  app.get("/leaving", function(req, res) {
-    res.sendFile(path.join(__dirname, "leaving.html"));
-  });
+  // app.get("/leaving", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "leaving.html"));
+  // });
   
   app.get("/api", function(req, res) {
     res.json();
   });
-  
+
 };
