@@ -16,10 +16,9 @@
       "port": "3306"
     },
     "production": {
-      "username": "root",
-      "password": null,
-      "database": "database_production",
-      "host": "127.0.0.1",
+      "use_env_variable": "JAWSDB_URL",
+      "username": "utrhq86weznive2d",
+      "password": "sbfxaa5w3trx8zf3",
       "dialect": "mysql",
       "port": "3306"
     }
